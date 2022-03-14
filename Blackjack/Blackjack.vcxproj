@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Deck.c" />
     <ClCompile Include="Source.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Deck.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
