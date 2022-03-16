@@ -6,17 +6,20 @@
 
 #define NUMOFCARDS 52
 
+typedef enum { SPADES, CLUBS, HEARTS, DIAMONDS } SUIT;
+
 typedef struct card 
 {
-	enum suit { SPADES, CLUBS, HEARTS, DIAMONDS };
+	SUIT suit;
 	char value;
 } CARD, *PCARD;
 
 typedef struct deck
 {
-	struct card* deck;
+	PCARD card[NUMOFCARDS];
 } DECK, *PDECK;
 
 void initialiseDeck(PDECK);
+void printDeck(PDECK);
 PDECK shuffleDeck(PDECK);
 PCARD dealCard(PDECK);
