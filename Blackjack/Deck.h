@@ -7,7 +7,7 @@ typedef struct card
 {
 	enum suit { SPADES, CLUBS, HEARTS, DIAMONDS };
 	char value;
-};
+}CARD, PCARD;
 
 typedef struct deck
 {
