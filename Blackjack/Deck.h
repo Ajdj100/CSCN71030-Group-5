@@ -14,7 +14,7 @@ typedef struct card
 	char value;
 } CARD, *PCARD;
 
-void initialiseDeck(PCARD);
+PCARD initialiseDeck();
 void printDeck(PCARD);
 void shuffleDeck(PCARD);
 PCARD dealCard(PCARD);
