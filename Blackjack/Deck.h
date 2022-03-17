@@ -8,13 +8,16 @@
 
 typedef enum { SPADES, CLUBS, HEARTS, DIAMONDS } SUIT;
 
-typedef struct card 
+typedef struct card
 {
 	SUIT suit;
-	char value;
-} CARD, *PCARD;
+	char displayValue;
+	int scoreValue;
+} CARD;
 
-PCARD initialiseDeck();
-void printDeck(PCARD);
-void shuffleDeck(PCARD);
-PCARD dealCard(PCARD);
+CARD* pCard;
+
+CARD* initialiseDeck();
+void printDeck(CARD*);
+void shuffleDeck(CARD*);
+CARD* dealCard(CARD*);

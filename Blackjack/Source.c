@@ -4,7 +4,7 @@
 int main(void) {
 	printf("Hello world!\n");
 
-	PCARD deck = initialiseDeck();
+	CARD* deck = initialiseDeck();
 	printDeck(deck);
 	return 0;
 }
