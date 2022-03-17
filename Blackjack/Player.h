@@ -5,4 +5,7 @@
 
 typedef struct player {
 
-};
+
+}PLAYER, *PPLAYER;
+
+PHAND getPlayerHand(PPLAYER);
