@@ -12,7 +12,9 @@ typedef struct card
 {
 	SUIT suit;
 	char value;
+
 } CARD, *PCARD;
+
 
 PCARD initialiseDeck();
 void printDeck(PCARD);
