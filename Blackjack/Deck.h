@@ -18,6 +18,11 @@ typedef struct card
 } CARD;
 
 CARD* initialiseDeck();
-void printDeck(CARD*);
+void destroyDeck(CARD*);
+
 void shuffleDeck(CARD*);
+void resetDeck(CARD*);
 CARD* dealCard(CARD*);
+
+//Function only for testing initialization.
+void printDeck(CARD*);

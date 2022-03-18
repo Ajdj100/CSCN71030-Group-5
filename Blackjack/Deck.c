@@ -334,12 +334,9 @@ CARD* initialiseDeck()
 	return deck;
 }
 
-void printDeck(CARD* deck)
+void destroyDeck(CARD* deck)
 {
-	for (int i = 0; i < NUMOFCARDS; i++)
-	{
-		printf("Card: %c of %i\n", deck[i].displayValue, deck[i].suit);
-	}
+	free(deck);
 }
 
 void shuffleDeck(CARD* deck)
@@ -359,6 +356,12 @@ void shuffleDeck(CARD* deck)
 	
 }
 
+void resetDeck(CARD* deck)
+{
+	for (int i = 0; i < NUMOFCARDS; i++) 
+		deck[i].inHand = false;
+}
+
 CARD* dealCard(CARD* deck)
 {
 	for (int i = 0; i < NUMOFCARDS; i++)
@@ -366,7 +369,17 @@ CARD* dealCard(CARD* deck)
 		if (deck[i].inHand == false)
 		{
 			deck[i].inHand = true;
+			printf("Dealing: %c of %i", deck[i].displayValue, deck[i].suit);
 			return &deck[i];
 		}
+	}
+}
+
+//Function only for testing initialization.
+void printDeck(CARD* deck)
+{
+	for (int i = 0; i < NUMOFCARDS; i++)
+	{
+		printf("Card: %c of %i\n", deck[i].displayValue, deck[i].suit);
 	}
 }
