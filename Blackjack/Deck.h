@@ -3,6 +3,7 @@
 
 #pragma once
 #include <stdio.h>
+#include <stdbool.h>
 
 #define NUMOFCARDS 52
 
@@ -13,9 +14,8 @@ typedef struct card
 	SUIT suit;
 	char displayValue;
 	int scoreValue;
+	bool inHand;
 } CARD;
-
-CARD* pCard;
 
 CARD* initialiseDeck();
 void printDeck(CARD*);
