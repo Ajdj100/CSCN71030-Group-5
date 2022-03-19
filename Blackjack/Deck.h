@@ -13,10 +13,10 @@ typedef struct card
 	SUIT suit;
 	char value;
 
-} CARD, *PCARD;
+}CARD;
 
 
-PCARD initialiseDeck();
+CARD* initialiseDeck();
 void printDeck(PCARD);
 void shuffleDeck(PCARD);
-PCARD dealCard(PCARD);
+CARD* dealCard(PCARD);

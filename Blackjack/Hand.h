@@ -2,17 +2,27 @@
 #pragma once
 
 #include "Deck.h"
+#include <stdlib.h>
+#include <stdbool.h>
+
+typedef struct handCard {
+
+	CARD* thisCard;
+	struct handCard* nextCard;
+
+}HANDCARD, *PHANDCARD;
 
 typedef struct hand {
 
-	PCARD firstCard;
+	PHANDCARD firstCard;
 
 }HAND, *PHAND;
 
-typedef struct handCard {
-	PCARD nextCard;
-
-};
+PHANDCARD createNewHandCard(CARD*);
+PHANDCARD getFirstCard(PHAND);
+PHANDCARD getNextCard(PHANDCARD);
+PHANDCARD getLastCard(PHAND);
 int getHandTotal(PHAND);
-void addCardToHand(PHAND, PCARD); //PCARD DOESNT EXIST YET *sweats profuesly*
+void addCardToHand(PHAND, CARD*);
 void emptyHand(PHAND);
+bool isHandEmpty(PHAND);

@@ -6,9 +6,9 @@
 #include <time.h>
 #include "Deck.h"
 
-PCARD initialiseDeck()
+CARD* initialiseDeck()
 {
-	PCARD deck[NUMOFCARDS];
+	CARD* deck[NUMOFCARDS];
 
 	for (int i = 0; i < NUMOFCARDS; i++)
 	{
@@ -282,7 +282,7 @@ PCARD initialiseDeck()
 	return deck;
 }
 
-void printDeck(PCARD deck)
+void printDeck(CARD* deck)
 {
 	for (int i = 0; i < NUMOFCARDS; i++)
 	{
@@ -290,12 +290,12 @@ void printDeck(PCARD deck)
 	}
 }
 
-void shuffleDeck(PCARD deck)
+void shuffleDeck(CARD* deck)
 {
 
 }
 
-PCARD dealCard(PCARD deck)
+CARD* dealCard(CARD* deck)
 {
 
 }

@@ -5,6 +5,7 @@
 
 typedef struct player {
 
+	PHAND hand;
 
 }PLAYER, *PPLAYER;
 
