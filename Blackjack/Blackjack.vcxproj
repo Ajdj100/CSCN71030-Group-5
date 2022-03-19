@@ -140,11 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Deck.c" />
+    <ClCompile Include="FileIO.c" />
     <ClCompile Include="Hand.c" />
     <ClCompile Include="Source.c" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="FileIO.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Player.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Scores.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
