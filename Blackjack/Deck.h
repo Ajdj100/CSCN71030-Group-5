@@ -20,6 +20,9 @@ typedef struct card
 CARD* initialiseDeck();
 void destroyDeck(CARD*);
 
+char getDisplayValue(CARD);
+int getScoreValue(CARD);
+
 void shuffleDeck(CARD*);
 void resetDeck(CARD*);
 CARD* dealCard(CARD*);

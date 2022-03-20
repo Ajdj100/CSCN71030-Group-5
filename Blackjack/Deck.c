@@ -339,6 +339,16 @@ void destroyDeck(CARD* deck)
 	free(deck);
 }
 
+char getDisplayValue(CARD card)
+{
+	return card.displayValue;
+}
+
+int getScoreValue(CARD card)
+{
+	return card.scoreValue;
+}
+
 void shuffleDeck(CARD* deck)
 {
 	srand(time(0));
@@ -383,3 +393,12 @@ void printDeck(CARD* deck)
 		printf("Card: %c of %i\n", deck[i].displayValue, deck[i].suit);
 	}
 }
+
+// Test Code
+//CARD* deck = initialiseDeck();
+//
+//printf("\nThe original deck:\n\n");
+//printDeck(deck);
+//shuffleDeck(deck);
+//printf("\nThe shuffled deck:\n\n");
+//printDeck(deck);
