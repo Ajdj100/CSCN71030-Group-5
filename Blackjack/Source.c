@@ -18,27 +18,10 @@
 
 int main(void) {
 
-	//PCARD deck = initialiseDeck();
-	////printDeck(deck);
-
-	//char* filename = "image.txt";
-	//FILE* fptr = NULL;
-
-	//if ((fptr = fopen(filename, "r")) == NULL)
-	//{
-	//	fprintf(stderr, "error opening %s\n", filename);
-	//	return 1;
-	//}
-
-	//print_image(fptr);
-
-	//fclose(fptr);
-
 	srand((unsigned)time(NULL)); //Generates random seed for rand() function
 	PrintClub();
 	PrintDiamond();
 	system("pause");
-
 	return 0;
 }
 //

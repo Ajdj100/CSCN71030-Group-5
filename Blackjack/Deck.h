@@ -3,20 +3,26 @@
 
 #pragma once
 #include <stdio.h>
+#include <stdbool.h>
 
 #define NUMOFCARDS 52
 
 typedef enum { SPADES, CLUBS, HEARTS, DIAMONDS } SUIT;
 
-typedef struct card 
+typedef struct card
 {
 	SUIT suit;
-	char value;
+	char displayValue;
+	int scoreValue;
+	bool inHand;
+} CARD;
 
-} CARD, *PCARD;
+CARD* initialiseDeck();
+void destroyDeck(CARD*);
 
+char getDisplayValue(CARD);
+int getScoreValue(CARD);
 
-PCARD initialiseDeck();
-void printDeck(PCARD);
-void shuffleDeck(PCARD);
-PCARD dealCard(PCARD);
+void shuffleDeck(CARD*);
+void resetDeck(CARD*);
+CARD* dealCard(CARD*);
