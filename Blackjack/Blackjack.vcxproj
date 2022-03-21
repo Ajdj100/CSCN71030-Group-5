@@ -140,10 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Deck.c" />
+    <ClCompile Include="Gameplay.c" />
     <ClCompile Include="Hand.c" />
+    <ClCompile Include="Interface.c" />
+    <ClCompile Include="Menu.c" />
     <ClCompile Include="Source.c" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Hand.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
