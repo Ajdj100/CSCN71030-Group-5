@@ -363,12 +363,12 @@ void shuffleDeck(CARD* deck)
 		deck[swapIndex1] = deck[swapIndex2];
 		deck[swapIndex2] = tempCard;
 	}
-	
+
 }
 
 void resetDeck(CARD* deck)
 {
-	for (int i = 0; i < NUMOFCARDS; i++) 
+	for (int i = 0; i < NUMOFCARDS; i++)
 		deck[i].inHand = false;
 }
 

@@ -17,6 +17,8 @@ typedef struct card
 	bool inHand;
 } CARD;
 
+CARD* pCard;
+
 CARD* initialiseDeck();
 void destroyDeck(CARD*);
 
@@ -26,6 +28,3 @@ int getScoreValue(CARD);
 void shuffleDeck(CARD*);
 void resetDeck(CARD*);
 CARD* dealCard(CARD*);
-
-//Function only for testing initialization.
-void printDeck(CARD*);

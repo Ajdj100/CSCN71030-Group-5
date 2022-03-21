@@ -1,7 +1,8 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include "Deck.h"
 
-int main(void) {
+int main(void)
+{
 	printf("Hello world!\n");
 
 	return 0;
