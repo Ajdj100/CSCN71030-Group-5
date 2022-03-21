@@ -17,8 +17,6 @@ typedef struct card
 	bool inHand;
 } CARD;
 
-CARD* pCard;
-
 CARD* initialiseDeck();
 void destroyDeck(CARD*);
 
