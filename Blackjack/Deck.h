@@ -26,6 +26,3 @@ int getScoreValue(CARD);
 void shuffleDeck(CARD*);
 void resetDeck(CARD*);
 CARD* dealCard(CARD*);
-
-//Function only for testing initialization.
-void printDeck(CARD*);
