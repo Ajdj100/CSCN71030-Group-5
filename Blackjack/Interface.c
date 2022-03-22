@@ -3,137 +3,115 @@
 #include <process.h>
 #include <math.h>
 #include <stdlib.h>
-#define spade 06                 //Used to print spade symbol
-#define club 05                  //Used to print club symbol
-#define diamond 04               //Used to print diamond symbol
-#define heart 03                 //Used to print heart symbol
-//jack = 10, queen = 12, king = 13, ace = 1/11
+#define spade 06
+#define club 05
+#define diamond 04
+#define heart 03
 
 void PrintClub()
 {
-    int k;
+    char displayValue = 'Q';       //needs deck module to be: if (displayValue = getDisplayValue(card*))
 
-    // srand((unsigned)time(NULL)); //Generates random seed for rand() function
-    k = rand() % 13 + 1;
 
-    if (k <= 10 && k > 1) //If random number is 9 or less, print card with that number
+    if (displayValue > 0)
     {
         printf("-------\n");
         printf("|%c    |\n", club);
-        printf("|  %d  |\n", k);
+        printf("|  %c  |\n", displayValue);
         printf("|    %c|\n", club);
         printf("-------\n");
     }
 
-    if (k == 11)
+    if (displayValue == 0)
     {
         printf("-------\n");
         printf("|%c    |\n", club);
-        printf("|  J  |\n");
+        printf("| 10  |\n");
         printf("|    %c|\n", club);
         printf("-------\n");
     }
 
-    if (k == 11  k == 1)
-    {
-        printf("-------\n");
-        printf("|%c    |\n", club);
-        printf("|  A  |\n");
-        printf("|    %c|\n", club);
-        printf("-------\n");
-    }
-
-    if (k == 12)
-    {
-        printf("-------\n");
-        printf("|%c    |\n", club);
-        printf("|  Q  |\n");
-        printf("|    %c|\n", club);
-        printf("-------\n");
-    }
-
-    if (k == 13)
-    {
-        printf("-------\n");
-        printf("|%c    |\n", club);
-        printf("|  K  |\n");
-        printf("|    %c|\n", club);
-        printf("-------\n");
-    }
-
-    printf("Your card is: %d of %c (Clubs)\n", k, club);
+    printf("Your card is: %c of %c (Clubs)\n", displayValue, club);
 }
 
 void PrintDiamond()
 {
-    int k;
+    char displayValue = 'Q';       //needs deck module to be: if (displayValue = getDisplayValue(card*))
 
-    k = rand() % 13 + 1;
+    //k = rand() % 13 + 1;
 
-    if (k <= 10 && k > 1) //If random number is 9 or less, print card with that number
+    if (displayValue > 0)
     {
         printf("-------\n");
         printf("|%c    |\n", diamond);
-        printf("|  %d  |\n", k);
+        printf("|  %c  |\n", displayValue);
         printf("|    %c|\n", diamond);
         printf("-------\n");
     }
 
-    if (k == 11)
+    if (displayValue == 0)
     {
         printf("-------\n");
         printf("|%c    |\n", diamond);
-        printf("|  %d  |\n", k);
+        printf("| 10  |\n");
         printf("|    %c|\n", diamond);
         printf("-------\n");
     }
 
-    if (k == 11  k == 1)
+    printf("Your card is: %c of %c (diamonds)\n", displayValue, diamond);
+
+}
+
+void PrintHeart()
+{
+    char displayValue = 'K';       //needs deck module to be: if (displayValue = getDisplayValue(card*))
+
+    //k = rand() % 13 + 1;
+
+    if (displayValue > 0)
     {
         printf("-------\n");
-        printf("|%c    |\n", diamond);
-        printf("|  A  |\n");
-        printf("|    %c|\n", diamond);
+        printf("|%c    |\n", heart);
+        printf("|  %c  |\n", displayValue);
+        printf("|    %c|\n", heart);
         printf("-------\n");
     }
 
-    if (k == 12)
+    if (displayValue == 0)
     {
         printf("-------\n");
-        printf("|%c    |\n", diamond);
-        printf("|  Q  |\n");
-        printf("|    %c|\n", diamond);
+        printf("|%c    |\n", heart);
+        printf("| 10  |\n");
+        printf("|    %c|\n", heart);
         printf("-------\n");
     }
 
-    if (k == 13)
+    printf("Your card is: %c of %c (hearts)\n", displayValue, heart);
+}
+
+void PrintSpade()
+{
+    char displayValue = 'J';       //needs deck module to be: if (displayValue = getDisplayValue(card*))
+
+    //k = rand() % 13 + 1;
+
+    if (displayValue > 0)
     {
         printf("-------\n");
-        printf("|%c    |\n", diamond);
-        printf("|  K  |\n");
-        printf("|    %c|\n", diamond);
+        printf("|%c    |\n", spade);
+        printf("|  %c  |\n", displayValue);
+        printf("|    %c|\n", spade);
         printf("-------\n");
     }
 
-    printf("Your card is: %d of %c (diamonds)\n", k, diamond);
+    if (displayValue == 0)
+    {
+        printf("-------\n");
+        printf("|%c    |\n", spade);
+        printf("| 10  |\n");
+        printf("|    %c|\n", spade);
+        printf("-------\n");
+    }
 
-    /* printf("-------\n");
-     printf("|%c    |\n", diamond);
-     printf("|  %d  |\n", k);
-     printf("|    %c|\n", diamond);
-     printf("-------\n");
-
-     printf("-------\n");
-     printf("|%c    |\n", heart);
-     printf("|  %d  |\n", k);
-     printf("|    %c|\n", heart);
-     printf("-------\n");
-
-     printf("-------\n");
-     printf("|%c    |\n", spade);
-     printf("|  %d  |\n", k);
-     printf("|    %c|\n", spade);
-     printf("-------\n");*/
-
-
+    printf("Your card is: %c of %c (spades)\n", displayValue, spade);
 }
