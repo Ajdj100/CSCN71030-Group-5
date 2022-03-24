@@ -22,8 +22,10 @@ QUEUE* queueInit()
 		highScores->names = (char*)malloc(sizeof(char) * MAX_BUFFER_SIZE);
 		highScores->highScores = (int*)malloc(sizeof(int) * MAX_BUFFER_SIZE);
 
-		//for (int i = 0; i < MAX_BUFFER_SIZE; i++)
-		//	enqeueu(highScores, 0);
+		for (int i = 0; i < MAX_BUFFER_SIZE; i++)
+		{
+			enqeueu(highScores, DEFAULT_USERNAME, 0);
+		}
 
 		return highScores;
 	}
@@ -106,11 +108,14 @@ int* returnHighScores()
 	fp = fopen(FILE_NAME, "r");
 
 	if (fp == NULL)
+	{
 		printf("There has been an error opening the High Score file\n");
+		return -1;
+	}
 	else if (fp == EOF)
 	{
 		printf("The high score file is empty.\n");
-		return;
+		return -1;
 	}
 
 	fread(scores, sizeof(QUEUE), 1, fp);
@@ -120,29 +125,31 @@ int* returnHighScores()
 
 //	Test Code
 //QUEUE* scores = queueInit();
-//saveHighScoreToFile(scores, 1);
-//saveHighScoreToFile(scores, 2);
-//saveHighScoreToFile(scores, 3);
-//saveHighScoreToFile(scores, 4);
-//saveHighScoreToFile(scores, 5);
+//saveQueueToFile(scores, DEFAULT_USERNAME, 1);
+//saveQueueToFile(scores, DEFAULT_USERNAME, 2);
+//saveQueueToFile(scores, DEFAULT_USERNAME, 3);
+//saveQueueToFile(scores, DEFAULT_USERNAME, 4);
+//saveQueueToFile(scores, DEFAULT_USERNAME, 5);
 //
-//int* highScores = returnHighScoresFromFile();
+//int* highScores = returnHighScores();
+//char* userNames = returnUserNames();
 //
 //for (int i = 0; i < MAX_BUFFER_SIZE; i++)
 //{
-//	printf("%d\n", highScores[i]);
+//	printf("%c - %d\n", scores->names[i], highScores[i]);
 //}
 //
-//saveHighScoreToFile(scores, 6);
-//saveHighScoreToFile(scores, 7);
-//saveHighScoreToFile(scores, 8);
-//saveHighScoreToFile(scores, 9);
-//saveHighScoreToFile(scores, 10);
+//saveQueueToFile(scores, "YES", 6);
+//saveQueueToFile(scores, "PEPSI MAN", 7);
+//saveQueueToFile(scores, "YES", 8);
+//saveQueueToFile(scores, "GUY", 9);
+//saveQueueToFile(scores, "SI", 10);
 //
 //
-//highScores = returnHighScoresFromFile();
+//highScores = returnHighScores();
+//userNames = returnUserNames();
 //
 //for (int i = 0; i < MAX_BUFFER_SIZE; i++)
 //{
-//	printf("%d\n", highScores[i]);
+//	printf("%c - %d\n", scores->names[i], highScores[i]);
 //}

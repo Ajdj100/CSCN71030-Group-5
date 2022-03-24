@@ -8,6 +8,7 @@
 
 #define FILE_NAME "../Scores.txt"
 #define MAX_BUFFER_SIZE 5
+#define DEFAULT_USERNAME "AAA"
 
 typedef struct CircularQueue
 {
