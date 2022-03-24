@@ -15,12 +15,13 @@ typedef struct CircularQueue
 	int tail;
 	int itemsInBuffer;
 	int newestIndex;
+	char* names;
 	int* highScores;
 } QUEUE;
 
 //Ring buffer operations
 QUEUE* queueInit();
-void enqeueu(QUEUE*, int);
+void enqeueu(QUEUE*, char, int);
 void dequeue(QUEUE*);
 
 //Read/Write from file

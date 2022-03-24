@@ -19,16 +19,17 @@ QUEUE* queueInit()
 		highScores->head = 0;
 		highScores->itemsInBuffer = 0;
 		highScores->newestIndex = 0;
+		highScores->names = (char*)malloc(sizeof(char) * MAX_BUFFER_SIZE);
 		highScores->highScores = (int*)malloc(sizeof(int) * MAX_BUFFER_SIZE);
 
-		for (int i = 0; i < MAX_BUFFER_SIZE; i++)
-			enqeueu(highScores, 0);
+		//for (int i = 0; i < MAX_BUFFER_SIZE; i++)
+		//	enqeueu(highScores, 0);
 
 		return highScores;
 	}
 }
 
-void enqeueu(QUEUE* q, int newScore)
+void enqeueu(QUEUE* q, char userName, int newScore)
 {
 	if (q == NULL) return;
 	else if (q->itemsInBuffer == MAX_BUFFER_SIZE) return;
@@ -36,6 +37,7 @@ void enqeueu(QUEUE* q, int newScore)
 		// first we move the tail (insert) location up one (in the circle (size related to _capacity))
 		q->tail = (q->tail + 1) % MAX_BUFFER_SIZE; // this makes it go around in a circle
 		// now we can add the actual item to the location
+		q->names[q->tail] = userName;
 		q->highScores[q->tail] = newScore;
 		// now we have to increase the size.
 		q->itemsInBuffer++;
@@ -54,15 +56,15 @@ void dequeue(QUEUE* q)
 }
 
 //	Read/Write from file
-void saveHighScoreToFile(QUEUE* q, int newScore)
+void saveHighScoreToFile(QUEUE* q, char userName, int newScore)
 {
 	if (q->itemsInBuffer == MAX_BUFFER_SIZE)
 	{
 		dequeue(q);
-		enqeueu(q, newScore);
+		enqeueu(q, userName, newScore);
 	}
 	else
-		enqeueu(q, newScore);
+		enqeueu(q, userName, newScore);
 
 	FILE* fp;
 	fp = fopen(FILE_NAME, "w");
@@ -76,7 +78,27 @@ void saveHighScoreToFile(QUEUE* q, int newScore)
 	return;
 }
 
-int* returnHighScoresFromFile()
+char* returnUserNames()
+{
+	QUEUE* q = queueInit();
+
+	FILE* fp;
+	fp = fopen(FILE_NAME, "r");
+
+	if (fp == NULL)
+		printf("There has been an error opening the High Score file\n");
+	else if (fp == EOF)
+	{
+		printf("The high score file is empty.\n");
+		return;
+	}
+
+	fread(q, sizeof(QUEUE), 1, fp);
+
+	return q->names;
+}
+
+int* returnHighScores()
 {
 	QUEUE* scores = queueInit();
 
