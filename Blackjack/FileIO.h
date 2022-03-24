@@ -26,4 +26,5 @@ void dequeue(QUEUE*);
 
 //Read/Write from file
 void saveHighScoreToFile(QUEUE*);
-int* returnHighScoresFromFile();
+int* returnHighScores();
+char* returnUserNames();
