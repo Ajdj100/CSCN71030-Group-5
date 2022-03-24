@@ -6,6 +6,7 @@
 #include <stdbool.h>
 
 #define NUMOFCARDS 52
+#define MAX_SHUFFLE 5
 
 typedef enum { SPADES, CLUBS, HEARTS, DIAMONDS } SUIT;
 
@@ -19,6 +20,7 @@ typedef struct card
 
 CARD* initialiseDeck();
 void destroyDeck(CARD*);
+void printDeck(CARD*);
 
 char getDisplayValue(CARD);
 int getScoreValue(CARD);

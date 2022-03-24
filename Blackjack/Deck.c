@@ -354,7 +354,9 @@ void shuffleDeck(CARD* deck)
 	srand(time(0));
 	int swapIndex1;
 	int swapIndex2;
-	for (int i = 0; i < NUMOFCARDS; i++)
+	int timesToShuffle = (rand() % MAX_SHUFFLE);
+
+	for (int i = 0; i < (NUMOFCARDS * timesToShuffle); i++)
 	{
 		swapIndex1 = rand() % NUMOFCARDS;
 		swapIndex2 = rand() % NUMOFCARDS;
