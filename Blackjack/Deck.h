@@ -15,7 +15,7 @@ typedef struct card
 
 }CARD;
 
-
+int getScoreValue(CARD);
 CARD* initialiseDeck();
 void printDeck(PCARD);
 void shuffleDeck(PCARD);

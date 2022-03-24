@@ -26,9 +26,10 @@ int getHandTotal(PHAND thisHand) {
 	int counter = 0;
 	while (current != NULL) {
 		PHANDCARD next = getNextCard(current);
-		//counter +=												//NEED SEBASTIAN TO MAKE A GETTER FOR CARD VALUE FOR THIS 
+		counter += getScoreValue(*current->thisCard);										//NEED SEBASTIAN TO MAKE A GETTER FOR CARD VALUE FOR THIS 
 		current = next;
 	}
+	return counter;
 }
 
 /// <summary>
@@ -38,10 +39,15 @@ int getHandTotal(PHAND thisHand) {
 /// <param name="thisCard">The card to add to the hand</param>
 void addCardToHand(PHAND theHand, CARD* theCard) {
 	PHANDCARD newCard = createNewHandCard(theCard);
-	PHANDCARD lastCard = getLastCard(theHand);
 
-	lastCard->nextCard = newCard;
-
+	if (isHandEmpty(theHand)) {
+		theHand->firstCard = newCard;
+	}
+	else {
+		PHANDCARD lastCard = getLastCard(theHand);
+		lastCard->nextCard = newCard;
+	}
+	return;
 
 }
 
@@ -79,6 +85,10 @@ PHANDCARD getNextCard(PHANDCARD theCard) {
 /// <returns>Pointer to last card in hand</returns>
 PHANDCARD getLastCard(PHAND theHand) {
 	PHANDCARD current = getFirstCard(theHand);
+
+	if (current == NULL)
+		return current;
+
 	PHANDCARD next = getNextCard(current);
 
 	while (next != NULL) {
@@ -99,4 +109,31 @@ bool isHandEmpty(PHAND theHand) {
 		return true;
 	else
 		return false;
+}
+
+PHAND createHand() {
+	PHAND newHand = (PHAND)calloc(1, sizeof(HAND));
+	if (newHand == NULL)
+		exit(1);
+
+	return newHand;
+}
+
+void printHand(PHAND theHand) {
+
+	PHANDCARD current = getFirstCard(theHand);
+	PHANDCARD next;
+	while (current != NULL) {
+		printf("PRINT DA BABY\n");
+
+		//DebsPrintFunction(current->thisCard->suit, current->thisCard->value);
+		
+		next = getNextCard(current);
+
+		if (next != NULL)
+			current = next;
+		else
+			return;
+	}
+
 }

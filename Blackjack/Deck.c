@@ -299,3 +299,7 @@ CARD* dealCard(CARD* deck)
 {
 
 }
+
+int getScoreValue(CARD theCard) {
+	return 5;
+}

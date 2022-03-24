@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dealer.c" />
     <ClCompile Include="Deck.c" />
     <ClCompile Include="Hand.c" />
+    <ClCompile Include="Player.c" />
     <ClCompile Include="Source.c" />
+    <ClInclude Include="Dealer.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Player.h" />

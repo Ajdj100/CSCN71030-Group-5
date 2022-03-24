@@ -18,6 +18,7 @@ typedef struct hand {
 
 }HAND, *PHAND;
 
+PHAND createHand(void);
 PHANDCARD createNewHandCard(CARD*);
 PHANDCARD getFirstCard(PHAND);
 PHANDCARD getNextCard(PHANDCARD);
@@ -26,3 +27,5 @@ int getHandTotal(PHAND);
 void addCardToHand(PHAND, CARD*);
 void emptyHand(PHAND);
 bool isHandEmpty(PHAND);
+
+void printHand(PHAND);
