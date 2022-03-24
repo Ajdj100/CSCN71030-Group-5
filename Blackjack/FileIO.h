@@ -25,6 +25,6 @@ void enqeueu(QUEUE*, char, int);
 void dequeue(QUEUE*);
 
 //Read/Write from file
-void saveHighScoreToFile(QUEUE*);
+void saveQueueToFile(QUEUE*, char, int);
 int* returnHighScores();
 char* returnUserNames();

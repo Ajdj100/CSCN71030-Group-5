@@ -56,7 +56,7 @@ void dequeue(QUEUE* q)
 }
 
 //	Read/Write from file
-void saveHighScoreToFile(QUEUE* q, char userName, int newScore)
+void saveQueueToFile(QUEUE* q, char userName, int newScore)
 {
 	if (q->itemsInBuffer == MAX_BUFFER_SIZE)
 	{
