@@ -6,6 +6,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include "Interface.h"
+#include "Menu.h"
 #define spade 06 
 #define club 05 
 #define diamond 04 
@@ -13,13 +14,19 @@
 
 int main(void) 
 {
+    char cardValuePlayer[] = { "4" };
+    char cardValueDealer[] = { "A" };
 
-    //srand((unsigned)time(NULL)); //Generates random seed for rand() function
+    int x[] = { 10, 11, 12, 13, 14 };
+    //GenerateLB(x);
 
-    PrintClub();
-    PrintDiamond();
-    PrintHeart();
-    PrintSpade();
-    system("pause");
+    //PrintPlayerCard(HEARTS, cardValuePlayer);
+    //PrintDealerCard(DIAMONDS, cardValueDealer);
+    //Hand(SPADES, cardValue);
+    PrintWelcome();
+    MainMenu(x);
+ 
+    //system("pause");
+
     return 0;
 }

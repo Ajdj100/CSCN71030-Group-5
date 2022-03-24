@@ -3,115 +3,139 @@
 #include <process.h>
 #include <math.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include "Interface.h"
 #define spade 06
 #define club 05
 #define diamond 04
 #define heart 03
+#define suitLen 5
 
-void PrintClub()
+void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer[])
 {
-    char displayValue = 'Q';       //needs deck module to be: if (displayValue = getDisplayValue(card*))
+    char suits[4] = { spade, club, heart, diamond };
 
-
-    if (displayValue > 0)
+    if (!strcmp(displayValuePlayer, "0"))
     {
-        printf("-------\n");
-        printf("|%c    |\n", club);
-        printf("|  %c  |\n", displayValue);
-        printf("|    %c|\n", club);
-        printf("-------\n");
+        printf("\n    +-----+");
+        printf("\n    |%c    |", suits[suitTypePlayer]);
+        printf("\n    |  10 |");
+        printf("\n    |    %c|", suits[suitTypePlayer]);
+        printf("\n    +-----+\n");
+
+        printf("\nYour card is: 10 of %c\n", suits[suitTypePlayer]);
     }
 
-    if (displayValue == 0)
+    else
     {
-        printf("-------\n");
-        printf("|%c    |\n", club);
-        printf("| 10  |\n");
-        printf("|    %c|\n", club);
-        printf("-------\n");
+        printf("    +-----+\n");
+        printf("    |%c    |\n", suits[suitTypePlayer]);
+        printf("    |  %s  |\n", displayValuePlayer);
+        printf("    |    %c|\n", suits[suitTypePlayer]);
+        printf("    +-----+\n");
+
+        printf("\nYour card is: %s of %c\n", displayValuePlayer, suits[suitTypePlayer]);
     }
-
-    printf("Your card is: %c of %c (Clubs)\n", displayValue, club);
-}
-
-void PrintDiamond()
-{
-    char displayValue = 'Q';       //needs deck module to be: if (displayValue = getDisplayValue(card*))
-
-    //k = rand() % 13 + 1;
-
-    if (displayValue > 0)
-    {
-        printf("-------\n");
-        printf("|%c    |\n", diamond);
-        printf("|  %c  |\n", displayValue);
-        printf("|    %c|\n", diamond);
-        printf("-------\n");
-    }
-
-    if (displayValue == 0)
-    {
-        printf("-------\n");
-        printf("|%c    |\n", diamond);
-        printf("| 10  |\n");
-        printf("|    %c|\n", diamond);
-        printf("-------\n");
-    }
-
-    printf("Your card is: %c of %c (diamonds)\n", displayValue, diamond);
 
 }
 
-void PrintHeart()
+void PrintDealerCard(int suitTypeDealer, char displayValueDealer[])
 {
-    char displayValue = 'K';       //needs deck module to be: if (displayValue = getDisplayValue(card*))
+    char suits[4] = { spade, club, heart, diamond };
 
-    //k = rand() % 13 + 1;
+    printf("\n");
 
-    if (displayValue > 0)
+    if (!strcmp(displayValueDealer, "0"))
     {
-        printf("-------\n");
-        printf("|%c    |\n", heart);
-        printf("|  %c  |\n", displayValue);
-        printf("|    %c|\n", heart);
-        printf("-------\n");
+        printf("\n    +-----+");
+        printf("\n    |%c    |", suits[suitTypeDealer]);
+        printf("\n    |  10 |");
+        printf("\n    |    %c|", suits[suitTypeDealer]);
+        printf("\n    +-----+\n");
+
+        printf("\nThe dealer's first card is: 10 of %c\n", suits[suitTypeDealer]);
     }
 
-    if (displayValue == 0)
+    else
     {
-        printf("-------\n");
-        printf("|%c    |\n", heart);
-        printf("| 10  |\n");
-        printf("|    %c|\n", heart);
-        printf("-------\n");
-    }
+        printf("    +-----+\n");
+        printf("    |%c    |\n", suits[suitTypeDealer]);
+        printf("    |  %s  |\n", displayValueDealer);
+        printf("    |    %c|\n", suits[suitTypeDealer]);
+        printf("    +-----+\n");
 
-    printf("Your card is: %c of %c (hearts)\n", displayValue, heart);
+        printf("\nThe dealer's first card is: %s of %c\n", displayValueDealer, suits[suitTypeDealer]);
+    }
 }
 
-void PrintSpade()
+void PrintPlayerFinalCards(int suitTypePlayer, char displayValuePlayer[])
 {
-    char displayValue = 'J';       //needs deck module to be: if (displayValue = getDisplayValue(card*))
+    char suits[4] = { spade, club, heart, diamond };
 
-    //k = rand() % 13 + 1;
-
-    if (displayValue > 0)
+    if (!strcmp(displayValuePlayer, "0"))
     {
-        printf("-------\n");
-        printf("|%c    |\n", spade);
-        printf("|  %c  |\n", displayValue);
-        printf("|    %c|\n", spade);
-        printf("-------\n");
+        printf("\n    +-----+");
+        printf("\n    |%c    |", suits[suitTypePlayer]);
+        printf("\n    |  10 |");
+        printf("\n    |    %c|", suits[suitTypePlayer]);
+        printf("\n    +-----+\n");
     }
 
-    if (displayValue == 0)
+    else
     {
-        printf("-------\n");
-        printf("|%c    |\n", spade);
-        printf("| 10  |\n");
-        printf("|    %c|\n", spade);
-        printf("-------\n");
+        printf("    +-----+\n");
+        printf("    |%c    |\n", suits[suitTypePlayer]);
+        printf("    |  %s  |\n", displayValuePlayer);
+        printf("    |    %c|\n", suits[suitTypePlayer]);
+        printf("    +-----+\n");
     }
-
-    printf("Your card is: %c of %c (spades)\n", displayValue, spade);
 }
+
+void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer[])
+{
+    char suits[4] = { spade, club, heart, diamond };
+
+    printf("\n");
+
+    if (!strcmp(displayValueDealer, "0"))
+    {
+        printf("\n    +-----+");
+        printf("\n    |%c    |", suits[suitTypeDealer]);
+        printf("\n    |  10 |");
+        printf("\n    |    %c|", suits[suitTypeDealer]);
+        printf("\n    +-----+\n");
+
+    }
+
+    else
+    {
+        printf("    +-----+\n");
+        printf("    |%c    |\n", suits[suitTypeDealer]);
+        printf("    |  %s  |\n", displayValueDealer);
+        printf("    |    %c|\n", suits[suitTypeDealer]);
+        printf("    +-----+\n");
+
+    }
+}
+
+void GenerateLB(int* scores)
+{
+    printf("Here is how many times you have won the last 5 games:\n");
+    
+    for (int i = 0; i < 5; i++)
+    {
+        printf("\n%d. Rounds won: %d", i + 1, scores[i]);
+    }
+
+    //if (scores == NULL)
+    //{
+    //    printf("You have not played any games!\n");
+    //}
+
+    printf("\n\nPlease note: Program only saves data per game.\n\n");
+
+    system("pause");
+
+}
+
