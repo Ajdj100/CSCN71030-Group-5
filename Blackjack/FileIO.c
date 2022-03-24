@@ -21,6 +21,9 @@ QUEUE* queueInit()
 		highScores->newestIndex = 0;
 		highScores->highScores = (int*)malloc(sizeof(int) * MAX_BUFFER_SIZE);
 
+		for (int i = 0; i < MAX_BUFFER_SIZE; i++)
+			enqeueu(highScores, 0);
+
 		return highScores;
 	}
 }
