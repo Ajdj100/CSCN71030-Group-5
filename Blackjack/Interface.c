@@ -124,3 +124,48 @@ void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer[])
 
     }
 }
+
+void PrintWinner()
+{
+    cyan();
+    printf("\n");
+    sleep(90);
+    printf("      _             _ _____ ___     _____     __ _____  _____    _\n");
+    sleep(90);
+    printf("      \\\\           //|_   _|||\\\\    ||||\\\\    |||  ___|||    \\\\ | |\n");
+    sleep(90);
+    printf("       \\\\    _    //   | |  || \\\\   |||| \\\\   ||| |__  ||    || | |\n");
+    sleep(90);
+    printf("        \\\\  /_\\  //    | |  ||  \\\\  ||||  \\\\  |||  __| || ___// |_|\n");
+    sleep(90);
+    printf("         \\\\// \\\\//    _| |_ ||   \\\\ ||||   \\\\ ||| |___ ||  \\\\    _  \n");
+    sleep(90);
+    printf("          \\/   \\/    |_____|||    \\\\||||    \\\\|||_____|||   \\\\  |_|\n\n");
+    sleep(90);
+    reset();
+}
+
+void PrintLoser()
+{
+    red();
+    sleep(90);
+    printf("\n");
+    printf("	 _       ____   _____  _____  _____	     . - """""" - .\n");
+    sleep(90);
+    printf("	| |    //    \\\\/     \\| ____|||    \\\\	  .'          '.\n");
+    sleep(90);
+    printf("	| |    ||    |||  |  |||___  ||    ||	 /   O      O   \\\n");
+    sleep(90);
+    printf("	| |    ||    || \\ \\ \\ | ___| || ___//   :           `    :\n");
+    sleep(90);
+    printf("	| |___ ||    |||  |  |||____ ||  \\\\     :    .------.    :\n");
+    sleep(90);
+    printf("	|_____|\\\\____//\\_____/|_____|||   \\\\     \\  '        '  /\n");
+    sleep(90);
+    printf("						  '.          .'\n");
+    sleep(90);
+    printf("						    ' . ."""""". . '\n");
+    sleep(90);
+    reset();
+
+}

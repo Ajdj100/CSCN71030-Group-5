@@ -5,6 +5,8 @@
 #include <process.h>
 #include <math.h>
 #include <stdlib.h>
+#include <time.h>
+#include <Windows.h>
 #include "Interface.h"
 #include "Menu.h"
 #define spade 06 
@@ -18,18 +20,21 @@ int main(void)
     char cardValuePlayer[] = { "4" };
     char cardValueDealer[] = { "A" };
 
-    int x[] = { 10, 11, 12, 13, 14 };
+    int x[] = { 10, 11, 12, 13, 30 };
     //GenerateLB(x);
 
     //PrintPlayerCard(HEARTS, cardValuePlayer);
-   // PrintDealerCard(DIAMONDS, cardValueDealer);
+    //PrintDealerCard(DIAMONDS, cardValueDealer);
 
-    PrintPlayerFinalCards(HEARTS, cardValuePlayer);
-    PrintDealerFinalCards(DIAMONDS, cardValueDealer);
+    //PrintPlayerFinalCards(HEARTS, cardValuePlayer);
+    //PrintDealerFinalCards(DIAMONDS, cardValueDealer);
 
     //Hand(SPADES, cardValue);
     //PrintWelcome();
-    //MainMenu(x);
+    //MainMenu(x, "Random");
+
+    PrintWinner();
+    PrintLoser();
  
     //system("pause");
 
