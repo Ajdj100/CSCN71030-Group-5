@@ -20,11 +20,11 @@ int main(void)
     int x[] = { 10, 11, 12, 13, 14 };
     //GenerateLB(x);
 
-    //PrintPlayerCard(HEARTS, cardValuePlayer);
-    //PrintDealerCard(DIAMONDS, cardValueDealer);
+    PrintPlayerCard(HEARTS, cardValuePlayer);
+    PrintDealerCard(DIAMONDS, cardValueDealer);
     //Hand(SPADES, cardValue);
-    PrintWelcome();
-    MainMenu(x);
+    //PrintWelcome();
+    //MainMenu(x);
  
     //system("pause");
 

@@ -118,24 +118,3 @@ void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer[])
 
     }
 }
-
-void GenerateLB(int* scores)
-{
-    printf("Here is how many times you have won the last 5 games:\n");
-    
-    for (int i = 0; i < 5; i++)
-    {
-        printf("\n%d. Rounds won: %d", i + 1, scores[i]);
-    }
-
-    //if (scores == NULL)
-    //{
-    //    printf("You have not played any games!\n");
-    //}
-
-    printf("\n\nPlease note: Program only saves data per game.\n\n");
-
-    system("pause");
-
-}
-

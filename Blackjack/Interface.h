@@ -5,7 +5,6 @@
 
 void PrintPlayerCard(int, char[]);
 void PrintDealerCard(int, char[]);
-void GenerateLB(int*);
 void PrintPlayerFinalCards(int, char[]);
 void PrintDealerFinalCards(int, char[]);
 
