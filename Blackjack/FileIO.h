@@ -8,7 +8,6 @@
 
 #define FILE_NAME "../Scores.txt"
 #define MAX_BUFFER_SIZE 5
-#define DEFAULT_USERNAME "AAA"
 
 typedef struct CircularQueue
 {
@@ -16,16 +15,14 @@ typedef struct CircularQueue
 	int tail;
 	int itemsInBuffer;
 	int newestIndex;
-	char* names;
 	int* highScores;
 } QUEUE;
 
 //Ring buffer operations
 QUEUE* queueInit();
-void enqeueu(QUEUE*, char, int);
+void enqeueu(QUEUE*, int);
 void dequeue(QUEUE*);
 
 //Read/Write from file
-void saveQueueToFile(QUEUE*, char, int);
+void saveQueueToFile(QUEUE*, int);
 int* returnHighScores();
-char* returnUserNames();
