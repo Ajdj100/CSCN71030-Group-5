@@ -28,4 +28,9 @@ void addCardToHand(PHAND, CARD*);
 void emptyHand(PHAND);
 bool isHandEmpty(PHAND);
 
-void printHand(PHAND);
+
+//THESE NEED TO WORK WITH DEBS PRINT FUNCTIONS
+void printPlayerHand(PHAND); 
+void printDealerHand(PHAND);
+void printPlayerHandFinal(PHAND);
+void printDealerHandFinal(PHAND);

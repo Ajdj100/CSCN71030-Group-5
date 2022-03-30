@@ -20,3 +20,4 @@ void hit(PPLAYER, CARD*);
 bool stand(void);
 void increaseScore(PPLAYER);
 void decreaseScore(PPLAYER);
+void cleanHand(PPLAYER);

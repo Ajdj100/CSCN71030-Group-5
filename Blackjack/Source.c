@@ -2,6 +2,7 @@
 #include "Deck.h"
 #include "Hand.h"
 #include "Player.h"
+#include "Dealer.h"
 
 int main(int argc, char *argv[]) {
 
@@ -16,8 +17,17 @@ int main(int argc, char *argv[]) {
 	card2->suit = HEARTS;
 
 	PPLAYER thePlayer = createPlayer(argv[1]);
-
+	PPLAYER theDealer = createPlayer("Dealer");
+	hit(theDealer, card1);
+	hit(theDealer, card2);
+	hit(thePlayer, card1);
 	hit(thePlayer, card1);
 
+	cleanHand(thePlayer);
+
+	hit(thePlayer, card2);
+
+
+	dealerEval(thePlayer);
 	return 0;
 }

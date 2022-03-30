@@ -37,3 +37,47 @@ void setName(PPLAYER thePlayer, char* newName) {
 
 	return;
 }
+
+/// <summary>
+/// Gets the name of the player
+/// </summary>
+/// <param name="thePlayer"></param>
+/// <returns></returns>
+char* getPlayerName(PPLAYER thePlayer) {
+	return thePlayer->name;
+}
+
+/// <summary>
+/// Gets the score of a player
+/// </summary>
+/// <param name="thePlayer">The target player</param>
+/// <returns>The numerical score of the player</returns>
+int getPlayerScore(PPLAYER thePlayer) {
+	return thePlayer->score;
+}
+
+/// <summary>
+/// Increases the score of a player
+/// </summary>
+/// <param name="thePlayer"e target player</param>
+void increaseScore(PPLAYER thePlayer) {
+	thePlayer->score++;
+	return;
+}
+
+/// <summary>
+/// Decreases the score of a player
+/// </summary>
+/// <param name="thePlayer">The target player</param>
+void decreaseScore(PPLAYER thePlayer) {
+	thePlayer->score--;
+	return;
+}
+
+/// <summary>
+/// Empties the hand of a player
+/// </summary>
+/// <param name="thePlayer">The target player to empty the hand of</param>
+void cleanHand(PPLAYER thePlayer) {
+	emptyHand(getPlayerHand(thePlayer));
+}

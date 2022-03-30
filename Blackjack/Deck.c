@@ -301,5 +301,5 @@ CARD* dealCard(CARD* deck)
 }
 
 int getScoreValue(CARD theCard) {
-	return 5;
+	return 9;
 }
