@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
 #include <process.h>
 #include <time.h>
 #include "Interface.h"
@@ -21,6 +22,7 @@ void sleep(unsigned int mseconds)
 
 void PrintWelcome()
 {
+
 	printf("\n\n");
 	red();
 	printf("        ***********************************************************************************************\n");
@@ -96,7 +98,7 @@ void PrintWelcome()
 
 void red()
 {
-	printf("\033[0;31m"); // \033[1; 33m");
+	printf("\033[0;31m");
 }
 
 void cyan()
@@ -112,6 +114,7 @@ void reset()
 void MainMenu(int* scores, char username[])
 {
 	char option;
+	//char* username = { "\0" };
 	bool loop = true;
 
 	sleep(100);

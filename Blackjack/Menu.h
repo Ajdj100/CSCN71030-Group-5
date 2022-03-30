@@ -1,5 +1,4 @@
 #pragma once
-#include <Windows.h>
 
 void MainMenu(int*, char[]);
 void PrintRules();

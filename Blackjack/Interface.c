@@ -169,3 +169,5 @@ void PrintLoser()
     reset();
 
 }
+
+//void StartGame()

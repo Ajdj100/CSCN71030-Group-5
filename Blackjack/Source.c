@@ -13,6 +13,7 @@
 #define club 05 
 #define diamond 04 
 #define heart 03 
+#define MAXNAME 15
 
 int main(void) 
 {
@@ -21,6 +22,14 @@ int main(void)
     char cardValueDealer[] = { "A" };
 
     int x[] = { 10, 11, 12, 13, 30 };
+
+    char username[MAXNAME] = { "\0" };
+
+    printf("\n	Hello! What's your name?\n");
+    scanf("%s", &username);
+    getchar();
+    system("cls");
+
     //GenerateLB(x);
 
     //PrintPlayerCard(HEARTS, cardValuePlayer);
@@ -30,11 +39,11 @@ int main(void)
     //PrintDealerFinalCards(DIAMONDS, cardValueDealer);
 
     //Hand(SPADES, cardValue);
-    //PrintWelcome();
-    //MainMenu(x, "Random");
+    PrintWelcome();
+    MainMenu(x, username);
 
-    PrintWinner();
-    PrintLoser();
+    //PrintWinner();
+    //PrintLoser();
  
     //system("pause");
 
