@@ -30,11 +30,11 @@ void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer)
     {
         printf("    +-----+\n");
         printf("    |%c    |\n", suits[suitTypePlayer]);
-        printf("    |  %s  |\n", displayValuePlayer);
+        printf("    |  %c  |\n", displayValuePlayer);
         printf("    |    %c|\n", suits[suitTypePlayer]);
         printf("    +-----+\n");
 
-        printf("\nYour card is: %s of %c\n", displayValuePlayer, suits[suitTypePlayer]);
+        printf("\nYour card is: %c of %c\n", displayValuePlayer, suits[suitTypePlayer]);
     }
 
 }
@@ -60,11 +60,11 @@ void PrintDealerCard(int suitTypeDealer, char displayValueDealer)
     {
         printf("    +-----+\n");
         printf("    |%c    |\n", suits[suitTypeDealer]);
-        printf("    |  %s  |\n", displayValueDealer);
+        printf("    |  %c  |\n", displayValueDealer);
         printf("    |    %c|\n", suits[suitTypeDealer]);
         printf("    +-----+\n");
 
-        printf("\nThe dealer's first card is: %s of %c\n", displayValueDealer, suits[suitTypeDealer]);
+        printf("\nThe dealer's first card is: %c of %c\n", displayValueDealer, suits[suitTypeDealer]);
     }
 }
 
@@ -75,7 +75,7 @@ void PrintPlayerFinalCards(int suitTypePlayer, char displayValuePlayer)
     printf("Your final hand is:\n");
     printf("\n");
 
-    if (!strcmp(displayValuePlayer, "0"))
+    if (displayValuePlayer == '0')
     {
         printf("\n    +-----+");
         printf("\n    |%c    |", suits[suitTypePlayer]);
@@ -88,7 +88,7 @@ void PrintPlayerFinalCards(int suitTypePlayer, char displayValuePlayer)
     {
         printf("    +-----+\n");
         printf("    |%c    |\n", suits[suitTypePlayer]);
-        printf("    |  %s  |\n", displayValuePlayer);
+        printf("    |  %c  |\n", displayValuePlayer);
         printf("    |    %c|\n", suits[suitTypePlayer]);
         printf("    +-----+\n");
     }
@@ -103,7 +103,7 @@ void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer)
     printf("The dealer's final hand is:\n");
     printf("\n");
 
-    if (!strcmp(displayValueDealer, "0"))
+    if (displayValueDealer == '0')
     {
         printf("\n    +-----+");
         printf("\n    |%c    |", suits[suitTypeDealer]);
@@ -117,7 +117,7 @@ void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer)
     {
         printf("    +-----+\n");
         printf("    |%c    |\n", suits[suitTypeDealer]);
-        printf("    |  %s  |\n", displayValueDealer);
+        printf("    |  %c  |\n", displayValueDealer);
         printf("    |    %c|\n", suits[suitTypeDealer]);
         printf("    +-----+\n");
 
