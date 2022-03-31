@@ -8,6 +8,7 @@
 #include <time.h>
 #include "Interface.h"
 #include "Menu.h"
+#include"Gameplay.h" 
 #define spade 06 
 #define club 05 
 #define diamond 04 
@@ -111,14 +112,14 @@ void reset()
 	printf("\033[0m");
 }
 
-void MainMenu(int* scores, char username[])
+void MainMenu(int* scores, PPLAYER thePlayer)
 {
 	char option;
 	//char* username = { "\0" };
 	bool loop = true;
 
 	sleep(100);
-	printf("\n	 Hey there, %s!\n", username);
+	printf("\n	 Hey there, %s!\n", getPlayerName(thePlayer));
 
 	do {
 		sleep(100);
@@ -144,6 +145,8 @@ void MainMenu(int* scores, char username[])
 		case 'a':
 			// Join game function
 			printf("Starting game...\n\n");
+
+			gameplay(thePlayer);
 			break;
 
 		case 'b':
@@ -156,7 +159,7 @@ void MainMenu(int* scores, char username[])
 
 		case 'd':
 			loop = false;
-			printf("Exiting game... Goodbye %s!\n\n", username);
+			printf("Exiting game... Goodbye %s!\n\n", getPlayerName(thePlayer));
 			break;
 
 		default:

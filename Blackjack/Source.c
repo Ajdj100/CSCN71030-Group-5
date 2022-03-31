@@ -26,40 +26,23 @@ int main(void)
 
     int x[] = { 10, 11, 12, 13, 30 };
 
-    char username[MAXNAME] = { "\0" };
-    char dealerName[6] = { "dealer" };
+    //char username[MAXNAME] = { "\0" };
+  
 
-    printf("\n	Hello! What's your name?\n");
-    scanf("%s", &username);
-    getchar();
-    system("cls");
+    //printf("\n	Hello! What's your name?\n");
+    //scanf("%s", &username);
+    //getchar();
+    //system("cls");
 
+    char username[MAXNAME] = { "Alistair" };
     PPLAYER thePlayer = createPlayer(username);
-    PPLAYER thePlayer = createPlayer(dealerName);
+    
 
 
-    PrintWelcome(); //prints intro
+    //PrintWelcome(); //prints intro
 
-    bool loop = true;
-    do {
-        MainMenu(x, getPlayerName(thePlayer));
+    MainMenu(x, thePlayer);
 
-    } while
-    //GenerateLB(x);
-
-    //PrintPlayerCard(HEARTS, cardValuePlayer);
-    //PrintDealerCard(DIAMONDS, cardValueDealer);
-
-    //PrintPlayerFinalCards(HEARTS, cardValuePlayer);
-    //PrintDealerFinalCards(DIAMONDS, cardValueDealer);
-
-    //Hand(SPADES, cardValue);
-
-
-    //PrintWinner();
-    //PrintLoser();
- 
-    //system("pause");
 
     return 0;
 }

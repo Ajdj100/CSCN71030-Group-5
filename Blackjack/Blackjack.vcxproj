@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Dealer.c" />
     <ClCompile Include="Deck.c" />
+    <ClCompile Include="Gameplay.c" />
     <ClCompile Include="Hand.c" />
     <ClCompile Include="Player.c" />
     <ClCompile Include="Interface.c" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Source.c" />
     <ClInclude Include="Dealer.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Gameplay.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Interface.h" />

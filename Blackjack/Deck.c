@@ -297,9 +297,13 @@ void shuffleDeck(CARD* deck)
 
 CARD* dealCard(CARD* deck)
 {
-
+	return &deck[44];
 }
 
 int getScoreValue(CARD theCard) {
 	return 9;
+}
+
+char getDisplayValue(CARD theCard) {
+	return '9';
 }

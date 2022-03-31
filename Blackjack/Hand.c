@@ -1,5 +1,6 @@
 
 #include "Hand.h"
+#include "Interface.h"
 
 /// <summary>
 /// Allocates memory and copies target card into payload
@@ -129,9 +130,9 @@ void printPlayerHand(PHAND theHand) {
 	PHANDCARD current = getFirstCard(theHand);
 	PHANDCARD next;
 	while (current != NULL) {
-		printf("PRINT DA BABY\n");
-
+		CARD actualCard = getHandCard(current);
 		//DebsPrintFunction(current->thisCard->suit, current->thisCard->value);
+		PrintPlayerCard(getScoreValue(actualCard), getDisplayValue(actualCard));
 		
 		next = getNextCard(current);
 
@@ -198,4 +199,14 @@ void printDealerHandFinal(PHAND theHand) {
 			return;
 	}
 
+}
+
+/// <summary>
+/// Gets the card from the hand card linked list.
+/// </summary>
+/// <param name="handCard">node of the list to get the card from</param>
+/// <returns>card value from payload</returns>
+CARD getHandCard(PHANDCARD handCard) {
+	CARD* theCard = handCard->thisCard;
+	return *theCard;
 }

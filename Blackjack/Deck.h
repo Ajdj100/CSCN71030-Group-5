@@ -20,3 +20,4 @@ CARD* initialiseDeck();
 void printDeck(PCARD);
 void shuffleDeck(PCARD);
 CARD* dealCard(PCARD);
+char getDisplayValue(CARD);

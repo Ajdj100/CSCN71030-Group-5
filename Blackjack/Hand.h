@@ -27,6 +27,7 @@ int getHandTotal(PHAND);
 void addCardToHand(PHAND, CARD*);
 void emptyHand(PHAND);
 bool isHandEmpty(PHAND);
+CARD getHandCard(PHANDCARD);
 
 
 //THESE NEED TO WORK WITH DEBS PRINT FUNCTIONS
