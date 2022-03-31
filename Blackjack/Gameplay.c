@@ -122,8 +122,7 @@ void gameplay(PPLAYER thePlayer) {
 
 		//if player score > dealer score
 
-		printf("Play again?\n0. yes\n0. no");		//THIS NEEDS TO BE DONE LIKE THE REST OF THE INTERFACE
-		int choice = getchar();
+		game = PlayAgain();
 
 	} while (game);
 }
