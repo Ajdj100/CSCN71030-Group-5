@@ -135,6 +135,7 @@ void MainMenu(int* scores, PPLAYER thePlayer)
 		sleep(100);
 		printf("\n");
 
+		fseek(stdin, 0, SEEK_END);
 		option = getchar();
 		fseek(stdin, 0, SEEK_END);
 

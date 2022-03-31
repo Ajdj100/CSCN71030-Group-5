@@ -118,10 +118,14 @@ void gameplay(PPLAYER thePlayer) {
 
 		//if the player score is higher than the dealers
 		if (getHandTotal(getPlayerHand(thePlayer)) > getHandTotal(getPlayerHand(theDealer))) { 
-			printf("Player wins");
+			printf("Player wins\n");
+			//print player's final cards
+			//print dealer's final cards
 		}
 		else if (getHandTotal(getPlayerHand(thePlayer)) < getHandTotal(getPlayerHand(theDealer))) {
-			printf("Dealer wins");
+			printf("Dealer wins\n");
+			//print player's final cards
+			//print dealer's final cards
 		}
 
 		//if player score > dealer score
