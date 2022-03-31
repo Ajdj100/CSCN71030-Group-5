@@ -47,12 +47,12 @@ void gameplay(PPLAYER thePlayer) {
 		do {
 
 			//display dealer cards
-			printf("Dealer");
-			printPlayerHand(getPlayerHand(thePlayer));
+			printf("Dealer\n");
+			printDealerHand(getPlayerHand(theDealer));
 
-			printf("-------------------------------------");
+			printf("-------------------------------------\n");
 			//display player cards
-			printf("Player");
+			printf("Player\n");
 			printPlayerHand(getPlayerHand(thePlayer));
 
 			//ask player for choice
@@ -105,8 +105,8 @@ void gameplay(PPLAYER thePlayer) {
 			pscore = getHandTotal(getPlayerHand(thePlayer));
 
 			//check for bust
-			if (pscore > 21) {
-				pscore = -1;
+			if (dscore > 21) {
+				dscore = -1;
 				dturn = false;
 				printf("Dealer Bust\n");						//THIS NEEDS FORMATTING
 
@@ -120,12 +120,24 @@ void gameplay(PPLAYER thePlayer) {
 		if (getHandTotal(getPlayerHand(thePlayer)) > getHandTotal(getPlayerHand(theDealer))) { 
 			printf("Player wins\n");
 			//print player's final cards
+			printf("Your final hand is:\n");
+			printf("\n");
+			printPlayerHandFinal(getPlayerHand(thePlayer));
 			//print dealer's final cards
+			printf("The dealer's final hand is:\n");
+			printf("\n");
+			printDealerHandFinal(getPlayerHand(theDealer));
 		}
 		else if (getHandTotal(getPlayerHand(thePlayer)) < getHandTotal(getPlayerHand(theDealer))) {
 			printf("Dealer wins\n");
 			//print player's final cards
+			printf("Your final hand is:\n");
+			printf("\n");
+			printPlayerHandFinal(getPlayerHand(thePlayer));
 			//print dealer's final cards
+			printf("The dealer's final hand is:\n");
+			printf("\n");
+			printDealerHandFinal(getPlayerHand(theDealer));
 		}
 
 		//if player score > dealer score

@@ -72,9 +72,6 @@ void PrintPlayerFinalCards(int suitTypePlayer, char displayValuePlayer)
 {
     char suits[4] = { spade, club, heart, diamond };
 
-    printf("Your final hand is:\n");
-    printf("\n");
-
     if (displayValuePlayer == '0')
     {
         printf("\n    +-----+");
@@ -100,9 +97,6 @@ void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer)
 {
     char suits[4] = { spade, club, heart, diamond };
 
-    printf("The dealer's final hand is:\n");
-    printf("\n");
-
     if (displayValueDealer == '0')
     {
         printf("\n    +-----+");
@@ -120,8 +114,9 @@ void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer)
         printf("    |  %c  |\n", displayValueDealer);
         printf("    |    %c|\n", suits[suitTypeDealer]);
         printf("    +-----+\n");
-
     }
+
+    printf("\n");
 }
 
 void PrintWinner()

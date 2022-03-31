@@ -151,18 +151,19 @@ void printDealerHand(PHAND theHand) {
 
 	PHANDCARD current = getFirstCard(theHand);
 	PHANDCARD next;
-	while (current != NULL) {
-		printf("PRINT DA BABY\n");
+	//while (current != NULL) {
 
-		//DebsPrintFunction(current->thisCard->suit, current->thisCard->value);
+		CARD actualCard = getHandCard(current);
+	
+		PrintDealerCard(getSuit(actualCard), getDisplayValue(actualCard));
 
-		next = getNextCard(current);
+	//	next = getNextCard(current);
 
-		if (next != NULL)
-			current = next;
-		else
-			return;
-	}
+	//	if (next != NULL)
+	//		current = next;
+	//	else
+	//		return;
+	//}
 
 }
 
@@ -171,9 +172,11 @@ void printPlayerHandFinal(PHAND theHand) {
 	PHANDCARD current = getFirstCard(theHand);
 	PHANDCARD next;
 	while (current != NULL) {
-		printf("PRINT DA BABY\n");
 
-		//DebsPrintFunction(current->thisCard->suit, current->thisCard->value);
+		CARD actualCard = getHandCard(current);
+
+		PrintPlayerFinalCards(getSuit(actualCard), getDisplayValue(actualCard));
+
 
 		next = getNextCard(current);
 
@@ -190,9 +193,9 @@ void printDealerHandFinal(PHAND theHand) {
 	PHANDCARD current = getFirstCard(theHand);
 	PHANDCARD next;
 	while (current != NULL) {
-		printf("PRINT DA BABY\n");
+		CARD actualCard = getHandCard(current);
 
-		//DebsPrintFunction(current->thisCard->suit, current->thisCard->value);
+		PrintDealerFinalCards(getSuit(actualCard), getDisplayValue(actualCard));
 
 		next = getNextCard(current);
 
