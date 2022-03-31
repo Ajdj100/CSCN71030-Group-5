@@ -12,11 +12,11 @@
 #define heart 03
 #define suitLen 5
 
-void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer[])
+void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer)
 {
     char suits[4] = { spade, club, heart, diamond };
 
-    if (!strcmp(displayValuePlayer, "0"))
+    if (displayValuePlayer != '0')
     {
         printf("\n    +-----+");
         printf("\n    |%c    |", suits[suitTypePlayer]);
@@ -26,7 +26,6 @@ void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer[])
 
         printf("\nYour card is: 10 of %c\n", suits[suitTypePlayer]);
     }
-
     else
     {
         printf("    +-----+\n");
@@ -40,7 +39,7 @@ void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer[])
 
 }
 
-void PrintDealerCard(int suitTypeDealer, char displayValueDealer[])
+void PrintDealerCard(int suitTypeDealer, char displayValueDealer)
 {
     char suits[4] = { spade, club, heart, diamond };
 
@@ -69,7 +68,7 @@ void PrintDealerCard(int suitTypeDealer, char displayValueDealer[])
     }
 }
 
-void PrintPlayerFinalCards(int suitTypePlayer, char displayValuePlayer[])
+void PrintPlayerFinalCards(int suitTypePlayer, char displayValuePlayer)
 {
     char suits[4] = { spade, club, heart, diamond };
 
@@ -97,7 +96,7 @@ void PrintPlayerFinalCards(int suitTypePlayer, char displayValuePlayer[])
     printf("\n");
 }
 
-void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer[])
+void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer)
 {
     char suits[4] = { spade, club, heart, diamond };
 

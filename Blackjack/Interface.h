@@ -3,10 +3,10 @@
 #include "Menu.h"
 
 
-void PrintPlayerCard(int, char[]);
-void PrintDealerCard(int, char[]);
-void PrintPlayerFinalCards(int, char[]);
-void PrintDealerFinalCards(int, char[]);
+void PrintPlayerCard(int, char);
+void PrintDealerCard(int, char);
+void PrintPlayerFinalCards(int, char);
+void PrintDealerFinalCards(int, char);
 void PrintWinner();
 void PrintLoser();
 

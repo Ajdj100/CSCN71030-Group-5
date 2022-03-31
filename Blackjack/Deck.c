@@ -381,7 +381,6 @@ CARD* dealCard(CARD* deck)
 		if (deck[i].inHand == false)
 		{
 			deck[i].inHand = true;
-			printf("Dealing: %c of %i", deck[i].displayValue, deck[i].suit);
 			return &deck[i];
 		}
 	}

@@ -148,8 +148,6 @@
     <ClCompile Include="Menu.c" />
     <ClCompile Include="Source.c" />
     <ClInclude Include="Dealer.h" />
-  <ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="Hand.h" />

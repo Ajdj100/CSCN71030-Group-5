@@ -30,7 +30,7 @@ void gameplay(PPLAYER thePlayer) {
 
 		//hit twice to player
 		hit(thePlayer, dealCard(theDeck));
-		hit(thePlayer, dealCard(theDeck));
+		hit(thePlayer, dealCard(theDeck));		//BUG HERE?
 
 		//hit twice to dealer
 		hit(theDealer, dealCard(theDeck));

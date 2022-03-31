@@ -27,7 +27,7 @@ int getHandTotal(PHAND thisHand) {
 	int counter = 0;
 	while (current != NULL) {
 		PHANDCARD next = getNextCard(current);
-		counter += getScoreValue(*current->thisCard);										//NEED SEBASTIAN TO MAKE A GETTER FOR CARD VALUE FOR THIS 
+		counter += getScoreValue(*current->thisCard);										
 		current = next;
 	}
 	return counter;
@@ -98,8 +98,6 @@ PHANDCARD getLastCard(PHAND theHand) {
 		current = next;
 		next = getNextCard(current);
 	}
-
-	theHand->firstCard = NULL;
 
 	return current;
 }
