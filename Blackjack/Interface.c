@@ -16,7 +16,7 @@ void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer)
 {
     char suits[4] = { spade, club, heart, diamond };
 
-    if (displayValuePlayer != '0')
+    if (displayValuePlayer == '0')      //special case to handle 10s
     {
         printf("\n    +-----+");
         printf("\n    |%c    |", suits[suitTypePlayer]);
@@ -45,7 +45,7 @@ void PrintDealerCard(int suitTypeDealer, char displayValueDealer)
 
     printf("\n");
 
-    if (!strcmp(displayValueDealer, "0"))
+    if (displayValueDealer == '0')      //special case to handle 10s
     {
         printf("\n    +-----+");
         printf("\n    |%c    |", suits[suitTypeDealer]);
