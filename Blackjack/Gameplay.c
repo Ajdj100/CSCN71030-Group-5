@@ -15,10 +15,16 @@ void gameplay(PPLAYER thePlayer) {
 	bool pturn = true;
 	bool dturn = true;
 
+	//variables to store player scores
+	int pscore = 0;
+	int dscore = 0;
 	//broad gameplay loop
 	do {
+		//reset the gameplay variables
 		pturn = true;
 		dturn = true;
+		pscore = 0;
+		dscore = 0;
 
 		//reset the deck
 
@@ -30,7 +36,7 @@ void gameplay(PPLAYER thePlayer) {
 		cleanHand(theDealer);
 
 		//hit twice to player
-		hit(thePlayer, dealCard(theDeck));		//ISSUE FOUND HERE
+		hit(thePlayer, dealCard(theDeck));
 		hit(thePlayer, dealCard(theDeck));
 
 		//hit twice to dealer
@@ -60,6 +66,15 @@ void gameplay(PPLAYER thePlayer) {
 				break;
 			}
 
+			pscore = getHandTotal(getPlayerHand(thePlayer));
+
+			//check for bust
+			if (pscore > 21) {
+				pscore = -1;
+				pturn = false;
+				printf("Player Bust\n");						//THIS NEEDS FORMATTING
+			}
+
 			//clear screen
 			system("cls");
 
@@ -81,6 +96,16 @@ void gameplay(PPLAYER thePlayer) {
 			case 'b':		//if stand, break this loop
 				dturn = false;
 				break;
+			}
+
+			pscore = getHandTotal(getPlayerHand(thePlayer));
+
+			//check for bust
+			if (pscore > 21) {
+				pscore = -1;
+				dturn = false;
+				printf("Dealer Bust\n");						//THIS NEEDS FORMATTING
+
 			}
 
 		} while (dturn);
