@@ -43,7 +43,7 @@ void gameplay(PPLAYER thePlayer) {
 			printPlayerHand(getPlayerHand(thePlayer));
 
 			//ask player for choice
-			printf("make a choice:\n1: hit\n 2: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
+			printf("make a choice:\n1: hit\n2: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
 			//get players choice
 			pturn = getchar() - 1;										//THIS NEEDS INPUT CHECKING
 			//check players choice
