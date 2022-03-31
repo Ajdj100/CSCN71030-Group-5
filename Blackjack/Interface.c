@@ -169,4 +169,22 @@ void PrintLoser()
 
 }
 
-//void StartGame()
+void PlayAgain()
+{
+    char choice;
+    printf("Would you like to play again?\n");
+    printf("a. Yes\n");
+    printf("b. No\n");
+
+    choice = getchar();
+
+    if (choice == "a")
+    {
+        printf("Shuffling deck...");
+    }
+}
+
+void PrintTotalCards(int totalValue)
+{
+    printf("The total value of your cards are: %d", totalValue);
+}
