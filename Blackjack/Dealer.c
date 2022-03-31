@@ -12,9 +12,9 @@ char dealerEval(PPLAYER theDealer) {
 	int handTotal = getHandTotal(dealerHand);
 
 	if (handTotal < 17) {
-		return HIT;
+		return 'a';
 	}
 	else {
-		return STAND;
+		return 'b';
 	}
 }

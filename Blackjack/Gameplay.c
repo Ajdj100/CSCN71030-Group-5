@@ -1,6 +1,7 @@
 
 
 #include "Gameplay.h"
+#include "Dealer.h"
 
 
 void gameplay(PPLAYER thePlayer) {
@@ -39,11 +40,13 @@ void gameplay(PPLAYER thePlayer) {
 		//player gameplay loop
 		do {
 
-			//display dealer and player cards
+			//display dealer cards
+
+			//display player cards
 			printPlayerHand(getPlayerHand(thePlayer));
 
 			//ask player for choice
-			printf("make a choice:\na: hit\nb: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
+			printf("\nmake a choice:\na: hit\nb: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
 			//get players choice
 			char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
 			//check players choice
@@ -66,25 +69,31 @@ void gameplay(PPLAYER thePlayer) {
 		//dealer gameplay loop
 		do {
 
-			//
-
 			//perfom dealer evaluation and get dealer's choice
-			char dchoice = 
+			char dchoice = dealerEval(theDealer);
 
 			//check players choice
 			switch (dchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
 
 			case 'a':		//if hit, deal a card to the player
-				hit(thePlayer, dealCard(theDeck));
+				hit(theDealer, dealCard(theDeck));
 				break;
 			case 'b':		//if stand, break this loop
-				pturn = false;
+				dturn = false;
 				break;
 			}
 
 		} while (dturn);
 
 		//compare player score to dealer score
+
+		//if the player score is higher than the dealers
+		if (getHandTotal(getPlayerHand(thePlayer)) > getHandTotal(getPlayerHand(theDealer))) { 
+			printf("Player wins");
+		}
+		else if (getHandTotal(getPlayerHand(thePlayer)) < getHandTotal(getPlayerHand(theDealer))) {
+			printf("Dealer wins");
+		}
 
 		//if player score > dealer score
 

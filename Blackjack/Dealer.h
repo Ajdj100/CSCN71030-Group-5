@@ -3,8 +3,6 @@
 #include "Player.h"
 #include "Hand.h"
 
-typedef enum { HIT, STAND };
-
 char dealerEval(PPLAYER);
 
 /*
