@@ -5,7 +5,7 @@
 
 typedef enum { HIT, STAND };
 
-int dealerEval(PPLAYER);
+char dealerEval(PPLAYER);
 
 /*
 * The dealer will be implemented as a player with no name or score

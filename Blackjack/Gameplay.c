@@ -30,7 +30,7 @@ void gameplay(PPLAYER thePlayer) {
 
 		//hit twice to player
 		hit(thePlayer, dealCard(theDeck));
-		hit(thePlayer, dealCard(theDeck));		//BUG HERE?
+		hit(thePlayer, dealCard(theDeck));
 
 		//hit twice to dealer
 		hit(theDealer, dealCard(theDeck));
@@ -47,7 +47,7 @@ void gameplay(PPLAYER thePlayer) {
 			//get players choice
 			char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
 			//check players choice
-			switch (pchoice) {
+			switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
 				
 				case 'a':		//if hit, deal a card to the player
 					hit(thePlayer, dealCard(theDeck));
@@ -55,10 +55,10 @@ void gameplay(PPLAYER thePlayer) {
 				case 'b':		//if stand, break this loop
 					pturn = false;
 				break;
-				
-
 			}
+
 			//clear screen
+			system("cls");
 
 		} while (pturn);
 
@@ -66,11 +66,21 @@ void gameplay(PPLAYER thePlayer) {
 		//dealer gameplay loop
 		do {
 
-			//perfom dealer evaluation
+			//
 
-			//set dturn to return value of dealer evaluation
+			//perfom dealer evaluation and get dealer's choice
+			char dchoice = 
 
-			//if dturn is 0, hit to the dealer
+			//check players choice
+			switch (dchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
+
+			case 'a':		//if hit, deal a card to the player
+				hit(thePlayer, dealCard(theDeck));
+				break;
+			case 'b':		//if stand, break this loop
+				pturn = false;
+				break;
+			}
 
 		} while (dturn);
 

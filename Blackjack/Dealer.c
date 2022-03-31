@@ -6,7 +6,7 @@
 /// </summary>
 /// <param name="theDealer">the player structure containing the dealer</param>
 /// <returns>The dealer's decision on what action it will take</returns>
-int dealerEval(PPLAYER theDealer) {
+char dealerEval(PPLAYER theDealer) {
 	PHAND dealerHand = getPlayerHand(theDealer);
 
 	int handTotal = getHandTotal(dealerHand);
