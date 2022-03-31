@@ -176,15 +176,16 @@ bool PlayAgain()
     printf("a. Yes\n");
     printf("b. No\n");
 
+    fseek(stdin, 0, SEEK_END);
     choice = getchar();
 
-    if (choice == "a")
+    if (choice == 'a')
     {
         printf("Shuffling deck...\n");
         return true;
     }
     else {
-        printf("Exiting...\n");
+        printf("Returning to main menu...\n");
         return false;
     }
 }
