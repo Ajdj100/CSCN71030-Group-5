@@ -60,7 +60,7 @@ void emptyHand(PHAND theHand) {
 
 	while (current != NULL) {
 		PHANDCARD next = getNextCard(current);
-		free(current->thisCard)
+		free(current->thisCard);
 		free(current);
 		current = NULL;
 		current = next;

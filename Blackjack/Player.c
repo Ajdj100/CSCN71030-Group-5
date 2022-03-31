@@ -16,7 +16,7 @@ PHAND getPlayerHand(PPLAYER thePlayer) {
 /// <summary>
 /// Creates a new player and initializes its variables
 /// </summary>
-/// <param name=""></param>
+/// <param name="">character ptr to the name of the new player</param>
 /// <returns>pointer to the created player</returns>
 PPLAYER createPlayer(char* nameArg) {
 	PPLAYER newPlayer = (PPLAYER)calloc(1, sizeof(PLAYER));

@@ -10,4 +10,4 @@ void PrintDealerFinalCards(int, char[]);
 void PrintWinner();
 void PrintLoser();
 
-typedef enum { SPADES, CLUBS, HEARTS, DIAMONDS } SUIT;
+//typedef enum { SPADES, CLUBS, HEARTS, DIAMONDS } SUIT; //THIS EXISTS IN THE DECK MODULE ALREADY
