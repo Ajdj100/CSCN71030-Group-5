@@ -61,11 +61,14 @@ void emptyHand(PHAND theHand) {
 
 	while (current != NULL) {
 		PHANDCARD next = getNextCard(current);
-		free(current->thisCard);
 		free(current);
-		current = NULL;
+		//current = NULL;
 		current = next;
 	}
+
+	theHand->firstCard = NULL;		//THIS SHOULD FIX IT
+
+	return;
 }
 
 PHANDCARD getFirstCard(PHAND theHand) {
@@ -78,7 +81,9 @@ PHANDCARD getFirstCard(PHAND theHand) {
 /// <param name="theCard">The target card to get the next card from</param>
 /// <returns>Pointer to the next card in the list</returns>
 PHANDCARD getNextCard(PHANDCARD theCard) {
+
 	return theCard->nextCard;
+	//return NULL;
 }
 
 /// <summary>

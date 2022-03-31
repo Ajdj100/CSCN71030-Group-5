@@ -30,7 +30,7 @@ void gameplay(PPLAYER thePlayer) {
 		cleanHand(theDealer);
 
 		//hit twice to player
-		hit(thePlayer, dealCard(theDeck));
+		hit(thePlayer, dealCard(theDeck));		//ISSUE FOUND HERE
 		hit(thePlayer, dealCard(theDeck));
 
 		//hit twice to dealer
@@ -47,7 +47,7 @@ void gameplay(PPLAYER thePlayer) {
 
 			//ask player for choice
 			printf("\nmake a choice:\na: hit\nb: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
-			//get players choice
+			//get players choicead
 			char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
 			//check players choice
 			switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
