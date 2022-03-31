@@ -349,6 +349,10 @@ int getScoreValue(CARD card)
 	return card.scoreValue;
 }
 
+int getSuit(CARD card) {
+	return card.suit;
+}
+
 void shuffleDeck(CARD* deck)
 {
 	srand(time(0));

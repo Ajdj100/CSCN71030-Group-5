@@ -130,7 +130,7 @@ void printPlayerHand(PHAND theHand) {
 	while (current != NULL) {
 		CARD actualCard = getHandCard(current);
 		//DebsPrintFunction(current->thisCard->suit, current->thisCard->value);
-		PrintPlayerCard(getScoreValue(actualCard), getDisplayValue(actualCard));
+		PrintPlayerCard(getSuit(actualCard), getDisplayValue(actualCard));
 		
 		next = getNextCard(current);
 

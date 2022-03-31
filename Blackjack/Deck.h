@@ -24,6 +24,7 @@ void printDeck(CARD*);
 
 char getDisplayValue(CARD);
 int getScoreValue(CARD);
+int getSuit(CARD);
 
 void shuffleDeck(CARD*);
 void resetDeck(CARD*);
