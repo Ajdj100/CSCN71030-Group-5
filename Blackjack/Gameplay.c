@@ -47,8 +47,12 @@ void gameplay(PPLAYER thePlayer) {
 		do {
 
 			//display dealer cards
+			printf("Dealer");
+			printPlayerHand(getPlayerHand(thePlayer));
 
+			printf("-------------------------------------");
 			//display player cards
+			printf("Player");
 			printPlayerHand(getPlayerHand(thePlayer));
 
 			//ask player for choice
