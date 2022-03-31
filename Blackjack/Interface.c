@@ -169,7 +169,7 @@ void PrintLoser()
 
 }
 
-void PlayAgain()
+bool PlayAgain()
 {
     char choice;
     printf("Would you like to play again?\n");
@@ -180,7 +180,12 @@ void PlayAgain()
 
     if (choice == "a")
     {
-        printf("Shuffling deck...");
+        printf("Shuffling deck...\n");
+        return true;
+    }
+    else {
+        printf("Exiting...\n");
+        return false;
     }
 }
 
