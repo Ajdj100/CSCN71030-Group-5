@@ -43,16 +43,16 @@ void gameplay(PPLAYER thePlayer) {
 			printPlayerHand(getPlayerHand(thePlayer));
 
 			//ask player for choice
-			printf("make a choice:\n1: hit\n2: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
+			printf("make a choice:\na: hit\nb: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
 			//get players choice
-			pturn = getchar() - 1;										//THIS NEEDS INPUT CHECKING
+			char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
 			//check players choice
-			switch (pturn) {
+			switch (pchoice) {
 				
-				case 0:		//if hit, deal a card to the player
+				case 'a':		//if hit, deal a card to the player
 					hit(thePlayer, dealCard(theDeck));
 					break;
-				case 1:		//if stand, break this loop
+				case 'b':		//if stand, break this loop
 					pturn = false;
 				break;
 				
