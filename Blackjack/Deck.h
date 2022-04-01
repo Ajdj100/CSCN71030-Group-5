@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 #define NUMOFCARDS 52
-#define MAX_SHUFFLE 5
+#define MAX_SHUFFLE 52
 
 typedef enum { SPADES, CLUBS, HEARTS, DIAMONDS } SUIT;
 
