@@ -58,10 +58,10 @@ void gameplay(PPLAYER thePlayer) {
 			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
 
 			//ask player for choice
-			
-			
 				printf("\nmake a choice:\na: hit\nb: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
-				//get players choicead
+
+				//get players choice
+				fseek(stdin, 0, SEEK_END);
 				char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
 				//check players choice
 				switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
@@ -80,6 +80,7 @@ void gameplay(PPLAYER thePlayer) {
 			if (pscore > 21) {
 				pscore = -1;
 				pturn = false;
+				dturn = false;
 				printf("Player Bust\n");						//THIS NEEDS FORMATTING
 			}
 
@@ -90,7 +91,7 @@ void gameplay(PPLAYER thePlayer) {
 
 
 		//dealer gameplay loop
-		do {
+		while (dturn) {
 
 			//perfom dealer evaluation and get dealer's choice
 			char dchoice = dealerEval(theDealer);
@@ -116,7 +117,7 @@ void gameplay(PPLAYER thePlayer) {
 
 			}
 
-		} while (dturn);
+		}
 
 		//compare player score to dealer score
 
