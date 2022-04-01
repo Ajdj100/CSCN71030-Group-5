@@ -43,6 +43,5 @@ int main(void)
 
     MainMenu(x, thePlayer);
 
-
-    return 0;
+     return 0;
 }
