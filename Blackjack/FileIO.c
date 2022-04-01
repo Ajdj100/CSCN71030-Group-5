@@ -22,9 +22,7 @@ QUEUE* queueInit()
 		highScores->highScores = (int*)malloc(sizeof(int) * MAX_BUFFER_SIZE);
 
 		for (int i = 0; i < MAX_BUFFER_SIZE; i++)
-		{
 			enqeueu(highScores, 0);
-		}
 
 		return highScores;
 	}
@@ -103,31 +101,24 @@ int* returnHighScores()
 
 //	Test Code
 //QUEUE* scores = queueInit();
-//saveQueueToFile(scores, DEFAULT_USERNAME, 1);
-//saveQueueToFile(scores, DEFAULT_USERNAME, 2);
-//saveQueueToFile(scores, DEFAULT_USERNAME, 3);
-//saveQueueToFile(scores, DEFAULT_USERNAME, 4);
-//saveQueueToFile(scores, DEFAULT_USERNAME, 5);
+//saveQueueToFile(scores, 1);
+//saveQueueToFile(scores, 2);
+//saveQueueToFile(scores, 3);
+//saveQueueToFile(scores, 4);
+//saveQueueToFile(scores, 5);
 //
 //int* highScores = returnHighScores();
-//char* userNames = returnUserNames();
 //
 //for (int i = 0; i < MAX_BUFFER_SIZE; i++)
-//{
-//	printf("%c - %d\n", scores->names[i], highScores[i]);
-//}
+//	printf("%d\n", highScores[i]);
 //
-//saveQueueToFile(scores, "YES", 6);
-//saveQueueToFile(scores, "PEPSI MAN", 7);
-//saveQueueToFile(scores, "YES", 8);
-//saveQueueToFile(scores, "GUY", 9);
-//saveQueueToFile(scores, "SI", 10);
-//
+//saveQueueToFile(scores, 6);
+//saveQueueToFile(scores, 7);
+//saveQueueToFile(scores, 8);
+//saveQueueToFile(scores, 9);
+//saveQueueToFile(scores, 10);
 //
 //highScores = returnHighScores();
-//userNames = returnUserNames();
 //
 //for (int i = 0; i < MAX_BUFFER_SIZE; i++)
-//{
-//	printf("%c - %d\n", scores->names[i], highScores[i]);
-//}
+//	printf("%d\n", highScores[i]);
