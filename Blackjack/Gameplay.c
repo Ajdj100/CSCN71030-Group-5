@@ -54,21 +54,25 @@ void gameplay(PPLAYER thePlayer) {
 			//display player cards
 			printf("Player\n");
 			printPlayerHand(getPlayerHand(thePlayer));
+			printf("\n");
+			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
 
 			//ask player for choice
-			printf("\nmake a choice:\na: hit\nb: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
-			//get players choicead
-			char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
-			//check players choice
-			switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
-				
+			
+			
+				printf("\nmake a choice:\na: hit\nb: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
+				//get players choicead
+				char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
+				//check players choice
+				switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
+
 				case 'a':		//if hit, deal a card to the player
 					hit(thePlayer, dealCard(theDeck));
 					break;
 				case 'b':		//if stand, break this loop
 					pturn = false;
-				break;
-			}
+					break;
+				}
 
 			pscore = getHandTotal(getPlayerHand(thePlayer));
 
