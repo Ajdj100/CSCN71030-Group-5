@@ -20,6 +20,9 @@ void gameplay(PPLAYER thePlayer) {
 	int dscore = 0;
 	//broad gameplay loop
 	do {
+		//clears the screen
+		system("cls");
+
 		//reset the gameplay variables
 		pturn = true;
 		dturn = true;
@@ -81,7 +84,6 @@ void gameplay(PPLAYER thePlayer) {
 				pscore = -1;
 				pturn = false;
 				dturn = false;
-				printf("Player Bust\n");						//THIS NEEDS FORMATTING
 			}
 
 			//clear screen
@@ -107,13 +109,12 @@ void gameplay(PPLAYER thePlayer) {
 				break;
 			}
 
-			pscore = getHandTotal(getPlayerHand(thePlayer));
+			dscore = getHandTotal(getPlayerHand(theDealer));
 
 			//check for bust
 			if (dscore > 21) {
 				dscore = -1;
 				dturn = false;
-				printf("Dealer Bust\n");						//THIS NEEDS FORMATTING
 
 			}
 
@@ -174,7 +175,7 @@ void gameplay(PPLAYER thePlayer) {
 		//if player score > dealer score
 
 		game = PlayAgain();
-		system("cls");
+		
 
 	} while (game);
 }
