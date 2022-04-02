@@ -181,6 +181,7 @@ bool PlayAgain()
     }
     else {
         printf("Returning to main menu...\n");
+        system("cls");
         return false;
     }
 }
