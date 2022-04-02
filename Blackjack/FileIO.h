@@ -11,10 +11,10 @@
 
 typedef struct CircularQueue
 {
-	int head;
-	int tail;
+	//int head;
+	//int tail;
+	//int newestIndex;
 	int itemsInBuffer;
-	int newestIndex;
 	int* highScores;
 } QUEUE;
 

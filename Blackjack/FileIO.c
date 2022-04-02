@@ -15,10 +15,7 @@ QUEUE* queueInit()
 	}
 	else
 	{
-		highScores->tail = -1;
-		highScores->head = 0;
 		highScores->itemsInBuffer = 0;
-		highScores->newestIndex = 0;
 		highScores->highScores = (int*)malloc(sizeof(int) * MAX_BUFFER_SIZE);
 
 		for (int i = 0; i < MAX_BUFFER_SIZE; i++)
@@ -30,35 +27,41 @@ QUEUE* queueInit()
 
 void enqeueu(QUEUE* q, int newScore)
 {
-	for (int i = 0; i < q->itemsInBuffer; i++)
-	{
-		if (newScore > q->highScores[i])
-		{
-
-		}
-	}
-
 	if (q == NULL) return;
-	else if (q->itemsInBuffer == MAX_BUFFER_SIZE) return;
-	else {
-		// first we move the tail (insert) location up one (in the circle (size related to _capacity))
-		q->tail = (q->tail + 1) % MAX_BUFFER_SIZE; // this makes it go around in a circle
-		// now we can add the actual item to the location
-		q->highScores[q->tail] = newScore;
-		// now we have to increase the size.
-		q->itemsInBuffer++;
-		return;
+	else if (q->itemsInBuffer < MAX_BUFFER_SIZE)
+	{
+		q->highScores[q->itemsInBuffer] = newScore;
+		bubbleSort(q);
 	}
+	else
+	{
+		if (q->highScores[MAX_BUFFER_SIZE - 1] < newScore)
+			q->highScores[MAX_BUFFER_SIZE - 1] = newScore;
+	}
+
+	return;
+	//if (q == NULL) return;
+	//else if (q->itemsInBuffer == MAX_BUFFER_SIZE) return;
+	//else {
+	//	// first we move the tail (insert) location up one (in the circle (size related to _capacity))
+	//	q->tail = (q->tail + 1) % MAX_BUFFER_SIZE; // this makes it go around in a circle
+	//	// now we can add the actual item to the location
+	//	q->highScores[q->tail] = newScore;
+	//	// now we have to increase the size.
+	//	q->itemsInBuffer++;
+	//	return;
+	//}
 }
 void dequeue(QUEUE* q)
 {
 	if (q == NULL) return;
 	else
 	{
-		q->head = (q->head + 1) % MAX_BUFFER_SIZE;  // circular queue
+		q->highScores[q->itemsInBuffer] - 0;
 		q->itemsInBuffer--;
 	}
 	
+	return;
 }
 
 //	Read/Write from file
@@ -105,6 +108,17 @@ int* returnHighScores()
 	fread(scores, sizeof(QUEUE), 1, fp);
 
 	return scores->highScores;
+}
+
+void bubbleSort(QUEUE* q)
+{
+	for (int i = 0; i < q->itemsInBuffer; i++)
+	{
+		for (int j = i; j < q->itemsInBuffer; j++)
+		{
+		
+		}
+	}
 }
 
 //	Test Code
