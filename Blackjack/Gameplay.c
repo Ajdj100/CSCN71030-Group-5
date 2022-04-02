@@ -76,12 +76,16 @@ void gameplay(PPLAYER thePlayer) {
 					switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
 
 					case 'a':		//if hit, deal a card to the player
+						input = true;
 						system("cls");
+						printf("CLS 79\n");
 						hit(thePlayer, dealCard(theDeck));
 						break;
 					case 'b':		//if stand, break this loop
+						input = true;
 						pturn = false;
 						system("cls");
+						printf("CLS 85\n");
 						break;
 					default:
 						printf("Invalid input, please try again. \n\n");
