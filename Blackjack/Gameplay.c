@@ -78,14 +78,14 @@ void gameplay(PPLAYER thePlayer) {
 					case 'a':		//if hit, deal a card to the player
 						input = true;
 						system("cls");
-						printf("CLS 79\n");
+						printf("CLS 79\n");	//debug print to try and find a bug
 						hit(thePlayer, dealCard(theDeck));
 						break;
 					case 'b':		//if stand, break this loop
 						input = true;
 						pturn = false;
 						system("cls");
-						printf("CLS 85\n");
+						printf("CLS 87\n");	//debug print THIS IS WHERE THE BUG IS, LINE 87!!!
 						break;
 					default:
 						printf("Invalid input, please try again. \n\n");
