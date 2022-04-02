@@ -1,5 +1,5 @@
 
-
+#include "Interface.h"
 #include "Gameplay.h"
 #include "Dealer.h"
 
@@ -21,7 +21,7 @@ void gameplay(PPLAYER thePlayer) {
 	//broad gameplay loop
 	do {
 		//clears the screen
-		system("cls");
+		//system("cls");		//clears menu when game starts
 
 		//reset the gameplay variables
 		pturn = true;
@@ -50,22 +50,26 @@ void gameplay(PPLAYER thePlayer) {
 		do {
 
 			//display dealer cards
-			printf("Dealer\n");
+			printf("  +----------+\n");
+			printf("  |  Dealer  |\n");
+			printf("  +----------+\n");
 			printDealerHand(getPlayerHand(theDealer));
 
-			printf("-------------------------------------\n");
+			printf("\n------------------------------------------\n\n");
 			//display player cards
-			printf("Player\n");
+			printf("  +----------+\n");
+			printf("  |  Player  |\n");
+			printf("  +----------+\n\n");
 			printPlayerHand(getPlayerHand(thePlayer));
-			printf("\n");
 			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
 
 			//ask player for choice
-				printf("\n\nMake a choice:\na: Hit\nb: Stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
+				printf("HIT or STAND?\na: HIT\nb: STAND\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
 
 				//get players choice
 				fseek(stdin, 0, SEEK_END);
 				char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
+				fseek(stdin, 0, SEEK_END);
 				//check players choice
 				switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
 
@@ -87,7 +91,7 @@ void gameplay(PPLAYER thePlayer) {
 			}
 
 			//clear screen
-			system("cls");
+			system("cls");		//clears screen before ending game
 
 		} while (pturn);
 
@@ -96,7 +100,9 @@ void gameplay(PPLAYER thePlayer) {
 		while (dturn) {
 
 			//perfom dealer evaluation and get dealer's choice
+			fseek(stdin, 0, SEEK_END);
 			char dchoice = dealerEval(theDealer);
+			fseek(stdin, 0, SEEK_END);
 
 			//check players choice
 			switch (dchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
@@ -126,14 +132,18 @@ void gameplay(PPLAYER thePlayer) {
 		if (pscore == -1) { //if player busts
 			//printf("Player bust!\nDealer wins\n");
 			PrintLoser();
+			printf("You BUST!\n\n");
 			//print player's final cards
 			printf("Your final hand is:\n");
 			printf("\n");
 			printPlayerHandFinal(getPlayerHand(thePlayer));
+			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
+			printf("------------------------------------------\n\n");
 			//print dealer's final cards
 			printf("The dealer's final hand is:\n");
 			printf("\n");
 			printDealerHandFinal(getPlayerHand(theDealer));
+			PrintDealerTotalCards(getHandTotal(getPlayerHand(theDealer)));
 
 			//decrease player score
 			decreaseScore(thePlayer);
@@ -141,14 +151,18 @@ void gameplay(PPLAYER thePlayer) {
 		else if (dscore == -1) { //if the dealer busts
 			//printf("Dealer bust!\nPlayer wins\n");
 			PrintWinner();
+			printf("The Dealer BUST!\n\n");
 			//print player's final cards
 			printf("Your final hand is:\n");
 			printf("\n");
 			printPlayerHandFinal(getPlayerHand(thePlayer));
+			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
+			printf("------------------------------------------\n\n");
 			//print dealer's final cards
 			printf("The dealer's final hand is:\n");
 			printf("\n");
 			printDealerHandFinal(getPlayerHand(theDealer));
+			PrintDealerTotalCards(getHandTotal(getPlayerHand(theDealer)));
 
 			//increase player score
 			increaseScore(thePlayer);
@@ -164,10 +178,13 @@ void gameplay(PPLAYER thePlayer) {
 			printf("Your final hand is:\n");
 			printf("\n");
 			printPlayerHandFinal(getPlayerHand(thePlayer));
+			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
+			printf("------------------------------------------\n\n");
 			//print dealer's final cards
 			printf("The dealer's final hand is:\n");
 			printf("\n");
 			printDealerHandFinal(getPlayerHand(theDealer));
+			PrintDealerTotalCards(getHandTotal(getPlayerHand(theDealer)));
 
 			//handle score
 			increaseScore(thePlayer);
@@ -179,16 +196,20 @@ void gameplay(PPLAYER thePlayer) {
 			printf("Your final hand is:\n");
 			printf("\n");
 			printPlayerHandFinal(getPlayerHand(thePlayer));
+			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
+			printf("------------------------------------------\n\n");
 			//print dealer's final cards
 			printf("The dealer's final hand is:\n");
 			printf("\n");
 			printDealerHandFinal(getPlayerHand(theDealer));
+			PrintDealerTotalCards(getHandTotal(getPlayerHand(theDealer)));
 
 			//handle score
 			decreaseScore(thePlayer);
 		}
 
 		game = PlayAgain();
+		sleep(100);
 		
 
 	} while (game);

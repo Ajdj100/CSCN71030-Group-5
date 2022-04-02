@@ -24,7 +24,7 @@ void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer)
         printf("\n    |    %c|", suits[suitTypePlayer]);
         printf("\n    +-----+\n");
 
-        printf("\nYour card is: 10 of %c\n", suits[suitTypePlayer]);
+        printf("\nYour card is: 10 of %c\n\n", suits[suitTypePlayer]);
     }
     else
     {
@@ -34,7 +34,7 @@ void PrintPlayerCard(int suitTypePlayer, char displayValuePlayer)
         printf("    |    %c|\n", suits[suitTypePlayer]);
         printf("    +-----+\n");
 
-        printf("\nYour card is: %c of %c\n", displayValuePlayer, suits[suitTypePlayer]);
+        printf("\nYour card is: %c of %c\n\n", displayValuePlayer, suits[suitTypePlayer]);
     }
 
 }
@@ -47,7 +47,7 @@ void PrintDealerCard(int suitTypeDealer, char displayValueDealer)
 
     if (displayValueDealer == '0')      //special case to handle 10s
     {
-        printf("\n    +-----+");
+        printf("    +-----+");
         printf("\n    |%c    |", suits[suitTypeDealer]);
         printf("\n    |  10 |");
         printf("\n    |    %c|", suits[suitTypeDealer]);
@@ -99,7 +99,7 @@ void PrintDealerFinalCards(int suitTypeDealer, char displayValueDealer)
 
     if (displayValueDealer == '0')
     {
-        printf("\n    +-----+");
+        printf("    +-----+");
         printf("\n    |%c    |", suits[suitTypeDealer]);
         printf("\n    |  10 |");
         printf("\n    |    %c|", suits[suitTypeDealer]);
@@ -173,20 +173,41 @@ bool PlayAgain()
 
     fseek(stdin, 0, SEEK_END);
     choice = getchar();
+    fseek(stdin, 0, SEEK_END);
 
-    if (choice == 'a')
+    switch (choice)
     {
-        printf("Shuffling deck...\n");
+    case 'a':
+        sleep(200);
+        system("cls");
+        printf("\n\n        Shuffling deck...\n\n");
+        sleep(500);
+        system("cls");
         return true;
-    }
-    else {
-        printf("Returning to main menu...\n");
+
+    case 'b':
+        sleep(200);
+        system("cls");
+        printf("\n\n        Returning to main menu...\n\n");
+        sleep(450);
         system("cls");
         return false;
+
+    default:
+        printf("Invalid input, please try again. \n\n");
+        sleep(200);
+        PlayAgain();
+        system("cls");
+        break;
     }
 }
 
 void PrintTotalCards(int totalValue)
 {
-    printf("The total value of your cards are: %d", totalValue);
+    printf("The total value of your cards is: %d \n\n", totalValue);
+}
+
+void PrintDealerTotalCards(int totalValue)
+{
+    printf("The total value of the dealer's cards is: %d \n\n", totalValue);
 }

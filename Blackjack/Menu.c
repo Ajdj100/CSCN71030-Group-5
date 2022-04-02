@@ -146,6 +146,7 @@ void MainMenu(int* scores, PPLAYER thePlayer)
 		case 'a':
 			// Join game function
 			printf("Starting game...\n\n");
+			system("cls");
 
 			gameplay(thePlayer);
 			break;

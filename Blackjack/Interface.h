@@ -11,5 +11,6 @@ void PrintWinner();
 void PrintLoser();
 bool PlayAgain();
 void PrintTotalCards(int);
+void PrintDealerTotalCards(int);
 
 //typedef enum { SPADES, CLUBS, HEARTS, DIAMONDS } SUIT; //THIS EXISTS IN THE DECK MODULE ALREADY
