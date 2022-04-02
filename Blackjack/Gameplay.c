@@ -119,10 +119,36 @@ void gameplay(PPLAYER thePlayer) {
 
 		}
 
-		//compare player score to dealer score
+		//CHECKING FOR WINNERS AT GAME END
+
+		//check for busts
+		if (pscore == -1) { //if player busts
+			printf("Bust!\nDealer wins\n");
+			//print player's final cards
+			printf("Your final hand is:\n");
+			printf("\n");
+			printPlayerHandFinal(getPlayerHand(thePlayer));
+			//print dealer's final cards
+			printf("The dealer's final hand is:\n");
+			printf("\n");
+			printDealerHandFinal(getPlayerHand(theDealer));
+		}
+		else if (dscore == -1) { //if the dealer busts
+			printf("Player wins\n");
+			//print player's final cards
+			printf("Your final hand is:\n");
+			printf("\n");
+			printPlayerHandFinal(getPlayerHand(thePlayer));
+			//print dealer's final cards
+			printf("The dealer's final hand is:\n");
+			printf("\n");
+			printDealerHandFinal(getPlayerHand(theDealer));
+		}
+
+		//check for score winners
 
 		//if the player score is higher than the dealers
-		if (getHandTotal(getPlayerHand(thePlayer)) > getHandTotal(getPlayerHand(theDealer))) { 
+		else if (getHandTotal(getPlayerHand(thePlayer)) > getHandTotal(getPlayerHand(theDealer))) { 
 			printf("Player wins\n");
 			//print player's final cards
 			printf("Your final hand is:\n");
@@ -148,6 +174,7 @@ void gameplay(PPLAYER thePlayer) {
 		//if player score > dealer score
 
 		game = PlayAgain();
+		system("cls");
 
 	} while (game);
 }
