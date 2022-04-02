@@ -61,7 +61,7 @@ void gameplay(PPLAYER thePlayer) {
 			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
 
 			//ask player for choice
-				printf("\nmake a choice:\na: hit\nb: stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
+				printf("\n\nMake a choice:\na: Hit\nb: Stand\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
 
 				//get players choice
 				fseek(stdin, 0, SEEK_END);
@@ -124,7 +124,8 @@ void gameplay(PPLAYER thePlayer) {
 
 		//check for busts
 		if (pscore == -1) { //if player busts
-			printf("Player bust!\nDealer wins\n");
+			//printf("Player bust!\nDealer wins\n");
+			PrintLoser();
 			//print player's final cards
 			printf("Your final hand is:\n");
 			printf("\n");
@@ -138,7 +139,8 @@ void gameplay(PPLAYER thePlayer) {
 			decreaseScore(thePlayer);
 		}
 		else if (dscore == -1) { //if the dealer busts
-			printf("Dealer bust!\nPlayer wins\n");
+			//printf("Dealer bust!\nPlayer wins\n");
+			PrintWinner();
 			//print player's final cards
 			printf("Your final hand is:\n");
 			printf("\n");
@@ -156,7 +158,8 @@ void gameplay(PPLAYER thePlayer) {
 
 		//if the player score is higher than the dealers
 		else if (getHandTotal(getPlayerHand(thePlayer)) > getHandTotal(getPlayerHand(theDealer))) { 
-			printf("Player wins\n");
+			//printf("Player wins\n");
+			PrintWinner();
 			//print player's final cards
 			printf("Your final hand is:\n");
 			printf("\n");
@@ -170,7 +173,8 @@ void gameplay(PPLAYER thePlayer) {
 			increaseScore(thePlayer);
 		}
 		else if (getHandTotal(getPlayerHand(thePlayer)) < getHandTotal(getPlayerHand(theDealer))) {
-			printf("Dealer wins\n");
+			//printf("Dealer wins\n");
+			PrintLoser();
 			//print player's final cards
 			printf("Your final hand is:\n");
 			printf("\n");
