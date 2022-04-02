@@ -123,7 +123,7 @@ void gameplay(PPLAYER thePlayer) {
 
 		//check for busts
 		if (pscore == -1) { //if player busts
-			printf("Bust!\nDealer wins\n");
+			printf("Player bust!\nDealer wins\n");
 			//print player's final cards
 			printf("Your final hand is:\n");
 			printf("\n");
@@ -134,7 +134,7 @@ void gameplay(PPLAYER thePlayer) {
 			printDealerHandFinal(getPlayerHand(theDealer));
 		}
 		else if (dscore == -1) { //if the dealer busts
-			printf("Player wins\n");
+			printf("Dealer bust!\nPlayer wins\n");
 			//print player's final cards
 			printf("Your final hand is:\n");
 			printf("\n");
