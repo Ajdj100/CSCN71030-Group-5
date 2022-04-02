@@ -30,6 +30,14 @@ QUEUE* queueInit()
 
 void enqeueu(QUEUE* q, int newScore)
 {
+	for (int i = 0; i < q->itemsInBuffer; i++)
+	{
+		if (newScore > q->highScores[i])
+		{
+
+		}
+	}
+
 	if (q == NULL) return;
 	else if (q->itemsInBuffer == MAX_BUFFER_SIZE) return;
 	else {
