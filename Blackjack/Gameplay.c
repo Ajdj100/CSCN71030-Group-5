@@ -133,6 +133,9 @@ void gameplay(PPLAYER thePlayer) {
 			printf("The dealer's final hand is:\n");
 			printf("\n");
 			printDealerHandFinal(getPlayerHand(theDealer));
+
+			//decrease player score
+			decreaseScore(thePlayer);
 		}
 		else if (dscore == -1) { //if the dealer busts
 			printf("Dealer bust!\nPlayer wins\n");
@@ -144,6 +147,9 @@ void gameplay(PPLAYER thePlayer) {
 			printf("The dealer's final hand is:\n");
 			printf("\n");
 			printDealerHandFinal(getPlayerHand(theDealer));
+
+			//increase player score
+			increaseScore(thePlayer);
 		}
 
 		//check for score winners
@@ -159,6 +165,9 @@ void gameplay(PPLAYER thePlayer) {
 			printf("The dealer's final hand is:\n");
 			printf("\n");
 			printDealerHandFinal(getPlayerHand(theDealer));
+
+			//handle score
+			increaseScore(thePlayer);
 		}
 		else if (getHandTotal(getPlayerHand(thePlayer)) < getHandTotal(getPlayerHand(theDealer))) {
 			printf("Dealer wins\n");
@@ -170,9 +179,10 @@ void gameplay(PPLAYER thePlayer) {
 			printf("The dealer's final hand is:\n");
 			printf("\n");
 			printDealerHandFinal(getPlayerHand(theDealer));
-		}
 
-		//if player score > dealer score
+			//handle score
+			decreaseScore(thePlayer);
+		}
 
 		game = PlayAgain();
 		
