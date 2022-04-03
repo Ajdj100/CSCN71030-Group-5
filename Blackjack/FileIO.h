@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define FILE_NAME "../Scores.txt"
+#define FILE_NAME "./Scores.txt"
 #define MAX_BUFFER_SIZE 5
 
 typedef struct CircularQueue

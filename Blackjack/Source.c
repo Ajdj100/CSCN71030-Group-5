@@ -21,9 +21,7 @@
 
 int main(void) 
 {
-    //hard coded values to test the function that prints the cards. 
-    char cardValuePlayer[] = { "4" };
-    char cardValueDealer[] = { "A" };
+
 
     //char username[MAXNAME] = { "\0" };
 
