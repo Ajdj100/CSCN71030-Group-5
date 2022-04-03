@@ -1,4 +1,4 @@
- //	Group 5 - Blackjack
+//	Group 5 - Blackjack
 //	Written by: Sebastian I.
 
 #include "FileIO.h"
@@ -6,7 +6,7 @@
 // Circular queue operations
 QUEUE* queueInit()
 {
-	QUEUE *highScores = (QUEUE*)malloc(sizeof(QUEUE));
+	QUEUE* highScores = (QUEUE*)malloc(sizeof(QUEUE));
 
 	if (highScores == NULL)
 	{
@@ -56,7 +56,7 @@ void dequeue(QUEUE* q)
 		q->highScores[q->itemsInBuffer] - 0;
 		q->itemsInBuffer--;
 	}
-	
+
 	return;
 }
 
