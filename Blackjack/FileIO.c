@@ -70,12 +70,12 @@ void saveQueueToFile(QUEUE* q, int newScore)
 
 	if (fp == NULL)
 		printf("There has been an error opening the High Score file\n");
-	else
+	else if (fwrite(q, sizeof(QUEUE*), 1, fp) != 1)
 	{
-		fwrite(q, sizeof(QUEUE*), 1, fp);
+		printf("There has been an error writing to file.\n");
 		fclose(fp);
 	}
-		
+	
 	return;
 }
 
