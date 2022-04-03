@@ -24,7 +24,7 @@ PHANDCARD createNewHandCard(CARD* theCard) {
 /// <returns>the sum of the hand</returns>
 int getHandTotal(PHAND thisHand) {
 	PHANDCARD current = getFirstCard(thisHand);
-	PHANDCARD next = getNextCard(current);
+	PHANDCARD next;
 	int counter = 0;
 	int ace = 0;
 
@@ -35,10 +35,10 @@ int getHandTotal(PHAND thisHand) {
 		else {
 			counter += getScoreValue(*current->thisCard); //add the value
 		}
-				
-		current = next;
+
 		next = getNextCard(current);
-	}
+		current = next;
+		}
 
 	for (ace; ace > 0; ace--) {
 		if (counter >= 11)
