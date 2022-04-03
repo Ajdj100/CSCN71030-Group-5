@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileIO.c" />
     <ClCompile Include="Dealer.c" />
     <ClCompile Include="Deck.c" />
     <ClCompile Include="Gameplay.c" />
@@ -154,6 +155,10 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="FileIO.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Scores.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
