@@ -2,6 +2,7 @@
 #include "Interface.h"
 #include "Gameplay.h"
 #include "Dealer.h"
+#include "FileIO.h"
 
 
 void gameplay(PPLAYER thePlayer) {
@@ -10,6 +11,7 @@ void gameplay(PPLAYER thePlayer) {
 
 	PPLAYER theDealer = createPlayer(dealerName);
 	CARD* theDeck = { initialiseDeck() };
+	QUEUE* q = queueInit();
 
 	bool game = true;
 	bool pturn = true;
@@ -223,7 +225,10 @@ void gameplay(PPLAYER thePlayer) {
 
 		game = PlayAgain();
 		sleep(100);
+		readQueueFromFile(q);
+		saveQueueToFile(q, thePlayer->score);
 		
 
 	} while (game);
+
 }

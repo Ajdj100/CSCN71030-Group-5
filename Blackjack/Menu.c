@@ -9,6 +9,7 @@
 #include "Interface.h"
 #include "Menu.h"
 #include"Gameplay.h" 
+#include "FileIO.h"
 #define spade 06 
 #define club 05 
 #define diamond 04 
@@ -112,7 +113,7 @@ void reset()
 	printf("\033[0m");
 }
 
-void MainMenu(int* scores, PPLAYER thePlayer)
+void MainMenu(PPLAYER thePlayer)
 {
 	char option;
 	//char* username = { "\0" };
@@ -156,7 +157,7 @@ void MainMenu(int* scores, PPLAYER thePlayer)
 			break;
 
 		case 'c':
-			GenerateLB(scores);
+			GenerateLB();
 			break;
 
 		case 'd':
@@ -200,8 +201,9 @@ void PrintRules()
 	return;
 }
 
-void GenerateLB(int* scores)
+void GenerateLB()
 {
+	int* scores = returnHighScores();
 	system("cls");
 	printf("\n Here is how many times you have won the last 5 games:\n");
 
@@ -212,14 +214,13 @@ void GenerateLB(int* scores)
 	{
 		printf("    ----------------------\n");
 		printf("    | %5d\t|  %3d\t |\n", i + 1, scores[i]);
-		/*printf("\n%d. Rounds won: %d", i + 1, scores[i]);*/
 	}
 	printf("    ----------------------\n");
 
-	//if (scores == NULL)
-	//{
-	//    printf("You have not played any games!\n");
-	//}
+	if (scores == NULL)
+	{
+	    printf("You have not played any games!\n");
+	}
 
 	printf("\n Please note: Program only saves data of your last 5 games.\n\n");
 

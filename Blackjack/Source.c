@@ -10,6 +10,7 @@
 #include "Interface.h"
 #include "Menu.h"
 #include "Player.h"
+#include "FileIO.h"
 
 //These will need to be sreplaced by the deck module
 #define spade 06 
@@ -24,8 +25,6 @@ int main(void)
     char cardValuePlayer[] = { "4" };
     char cardValueDealer[] = { "A" };
 
-    int x[] = { 10, 11, 12, 13, 30 };
-
     //char username[MAXNAME] = { "\0" };
   
 
@@ -37,11 +36,9 @@ int main(void)
     char username[MAXNAME] = { "Alistair" };
     PPLAYER thePlayer = createPlayer(username);
     
-
-
     //PrintWelcome(); //prints intro
 
-    MainMenu(x, thePlayer);
+    MainMenu(thePlayer);
 
      return 0;
 }

@@ -2,10 +2,10 @@
 
 #include "Player.h"
 
-void MainMenu(int*, PPLAYER);
+void MainMenu(PPLAYER);
 void PrintRules();
 void PrintWelcome();
-void GenerateLB(int*);
+void GenerateLB();
 void red();
 void cyan();
 void reset();
