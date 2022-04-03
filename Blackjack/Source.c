@@ -19,23 +19,26 @@
 #define heart 03 
 #define MAXNAME 15
 
-int main(void) 
+int main(int argc, char**argv)
 {
+    if (argc < 1) {
+        printf("No name argument provided");
+        exit(1);
+    }
 
 
-    //char username[MAXNAME] = { "\0" };
+    char username[MAXNAME];
+    strncpy(username, argv[1], MAXNAME);
 
-    //printf("\n	Hello! What's your name?\n");
-    //scanf("%s", &username);
-    //getchar();
-    //system("cls");
-
-    char username[MAXNAME] = { "Alistair" };
     PPLAYER thePlayer = createPlayer(username);
     
-    //PrintWelcome(); //prints intro
-
+    PrintWelcome(); //prints intro
     MainMenu(thePlayer);
+
+
+    QUEUE* q = queueInit();
+    readQueueFromFile(q);
+    saveQueueToFile(q, thePlayer->score);
 
      return 0;
 }

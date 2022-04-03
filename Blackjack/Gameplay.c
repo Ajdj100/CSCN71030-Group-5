@@ -22,8 +22,6 @@ void gameplay(PPLAYER thePlayer) {
 	int dscore = 0;
 	//broad gameplay loop
 	do {
-		//clears the screen
-		//system("cls");		//clears menu when game starts
 
 		//reset the gameplay variables
 		pturn = true;
@@ -67,20 +65,19 @@ void gameplay(PPLAYER thePlayer) {
 			PrintTotalCards(getHandTotal(getPlayerHand(thePlayer)));
 
 			//ask player for choice
-				printf("HIT or STAND?\na: HIT\nb: STAND\n");			//THIS NEEDS TO BE UPDATED TO MATCH INTERFACE
+				printf("HIT or STAND?\na: HIT\nb: STAND\n");
 
 				//get players choice
 				bool input = false;
 				fseek(stdin, 0, SEEK_END);
-				char pchoice = (char)getc(stdin);										//THIS NEEDS INPUT CHECKING
+				char pchoice = (char)getc(stdin);										
 				fseek(stdin, 0, SEEK_END);
 				//check players choice
 				do {
-					switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
+					switch (pchoice) {	
 
 					case 'a':		//if hit, deal a card to the player
 						system("cls");
-						printf("CLS 79\n");	//debug print to try and find a bug
 						hit(thePlayer, dealCard(theDeck));
 						input = true;
 						break;
@@ -88,7 +85,6 @@ void gameplay(PPLAYER thePlayer) {
 						system("cls");
 						pturn = false;
 						input = true;
-						printf("CLS 87\n");	//debug print THIS IS WHERE THE BUG IS, LINE 87!!!
 						break;
 					default:
 						printf("Invalid input, please try again. \n\n");
@@ -106,9 +102,6 @@ void gameplay(PPLAYER thePlayer) {
 				dturn = false;
 			}
 
-			//clear screen
-			//system("cls");		//clears screen before ending game
-
 		} while (pturn);
 
 
@@ -121,7 +114,7 @@ void gameplay(PPLAYER thePlayer) {
 			fseek(stdin, 0, SEEK_END);
 
 			//check players choice
-			switch (dchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
+			switch (dchoice) {									
 
 			case 'a':		//if hit, deal a card to the player
 				hit(theDealer, dealCard(theDeck));
@@ -226,8 +219,7 @@ void gameplay(PPLAYER thePlayer) {
 
 		game = PlayAgain();
 		sleep(100);
-		readQueueFromFile(q);
-		saveQueueToFile(q, thePlayer->score);
+
 		
 
 	} while (game);
