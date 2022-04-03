@@ -196,9 +196,8 @@ bool PlayAgain()
     default:
         printf("Invalid input, please try again. \n\n");
         sleep(200);
-        PlayAgain();
+        return PlayAgain();
         system("cls");
-        return false;
     }
 }
 
