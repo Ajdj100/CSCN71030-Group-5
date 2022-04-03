@@ -32,6 +32,7 @@ void gameplay(PPLAYER thePlayer) {
 		dscore = 0;
 
 		//reset the deck
+		resetDeck(theDeck);
 
 		//shuffle the deck
 		shuffleDeck(theDeck);
