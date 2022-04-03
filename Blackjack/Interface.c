@@ -198,7 +198,7 @@ bool PlayAgain()
         sleep(200);
         PlayAgain();
         system("cls");
-        break;
+        return false;
     }
 }
 

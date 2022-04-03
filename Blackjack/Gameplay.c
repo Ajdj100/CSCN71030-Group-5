@@ -76,19 +76,20 @@ void gameplay(PPLAYER thePlayer) {
 					switch (pchoice) {										//DOES THIS NEED A DEFAULT CASE??? MAYBE FOR INPUT CHECKING
 
 					case 'a':		//if hit, deal a card to the player
-						input = true;
 						system("cls");
 						printf("CLS 79\n");	//debug print to try and find a bug
 						hit(thePlayer, dealCard(theDeck));
+						input = true;
 						break;
 					case 'b':		//if stand, break this loop
-						input = true;
-						pturn = false;
 						system("cls");
+						pturn = false;
+						input = true;
 						printf("CLS 87\n");	//debug print THIS IS WHERE THE BUG IS, LINE 87!!!
 						break;
 					default:
 						printf("Invalid input, please try again. \n\n");
+						input = true;
 						break;
 					}
 				} while (input == false);
