@@ -38,22 +38,22 @@ void enqueue(QUEUE* q, int newScore)
 	}
 	else
 	{
-		if (q->highScores[MAX_BUFFER_SIZE - 1] < newScore)
+		if (newScore > q->highScores[MAX_BUFFER_SIZE - 1])
 		{
 			q->highScores[MAX_BUFFER_SIZE - 1] = newScore;
-			q->itemsInBuffer++;
 			bubbleSort(q);
 		}
 	}
 
 	return;
 }
+
 void dequeue(QUEUE* q)
 {
 	if (q == NULL) return;
 	else
 	{
-		q->highScores[q->itemsInBuffer] - 0;
+		q->highScores[q->itemsInBuffer] = 0;
 		q->itemsInBuffer--;
 	}
 	
@@ -63,14 +63,7 @@ void dequeue(QUEUE* q)
 // Read/Write from file
 void saveQueueToFile(QUEUE* q, int newScore)
 {	
-	if (q->itemsInBuffer >= MAX_BUFFER_SIZE)
-	{
-		dequeue(q);
-		enqueue(q, newScore);
-	}
-	else
-		enqueue(q, newScore);
-	
+	enqueue(q, newScore);
 
 	FILE* fp;
 	fp = fopen(FILE_NAME, "w");
@@ -78,9 +71,11 @@ void saveQueueToFile(QUEUE* q, int newScore)
 	if (fp == NULL)
 		printf("There has been an error opening the High Score file\n");
 	else
+	{
 		fwrite(q, sizeof(QUEUE*), 1, fp);
-
-	fclose(fp);
+		fclose(fp);
+	}
+		
 	return;
 }
 
@@ -107,23 +102,7 @@ void readQueueFromFile(QUEUE* q)
 int* returnHighScores()
 {
 	QUEUE* scores = queueInit();
-
-	FILE* fp;
-	fp = fopen(FILE_NAME, "r");
-
-	if (fp == NULL)
-	{
-		printf("There has been an error opening the High Score file\n");
-		return -1;
-	}
-	else if (fp == EOF)
-	{
-		printf("The high score file is empty.\n");
-		return -1;
-	}
-
-	fread(scores, sizeof(QUEUE*), 1, fp);
-	fclose(fp);
+	readQueueFromFile(scores);
 
 	return scores->highScores;
 }

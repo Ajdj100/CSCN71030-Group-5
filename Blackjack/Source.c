@@ -26,7 +26,6 @@ int main(void)
     char cardValueDealer[] = { "A" };
 
     //char username[MAXNAME] = { "\0" };
-  
 
     //printf("\n	Hello! What's your name?\n");
     //scanf("%s", &username);

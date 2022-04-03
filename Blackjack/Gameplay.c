@@ -35,7 +35,7 @@ void gameplay(PPLAYER thePlayer) {
 
 		//shuffle the deck
 		shuffleDeck(theDeck);
-		
+				
 		//clear hands
 		cleanHand(thePlayer);
 		cleanHand(theDealer);
