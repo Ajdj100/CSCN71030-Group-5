@@ -38,7 +38,7 @@ int getHandTotal(PHAND thisHand) {
 /// </summary>
 /// <param name="thisHand">The hand to add the card to</param>
 /// <param name="thisCard">The card to add to the hand</param>
-void addCardToHand(PHAND theHand, CARD* theCard) {
+void addCardToHand(PHAND theHand, CARD* theCard) {				//issue is either here
 	PHANDCARD newCard = createNewHandCard(theCard);
 
 	if (isHandEmpty(theHand)) {
@@ -62,7 +62,7 @@ void emptyHand(PHAND theHand) {
 	while (current != NULL) {
 		PHANDCARD next = getNextCard(current);
 		free(current);
-		//current = NULL;
+		current = NULL;					//this was commented out for some reason
 		current = next;
 	}
 
