@@ -3,7 +3,7 @@
 
 #include "FileIO.h"
 
-//	Circular queue operations
+// Circular queue operations
 QUEUE* queueInit()
 {
 	QUEUE *highScores = (QUEUE*)malloc(sizeof(QUEUE));
@@ -21,6 +21,8 @@ QUEUE* queueInit()
 		for (int i = 0; i < MAX_BUFFER_SIZE; i++)
 			enqeueu(highScores, 0);
 
+		highScores->itemsInBuffer = 0;
+
 		return highScores;
 	}
 }
@@ -31,26 +33,20 @@ void enqeueu(QUEUE* q, int newScore)
 	else if (q->itemsInBuffer < MAX_BUFFER_SIZE)
 	{
 		q->highScores[q->itemsInBuffer] = newScore;
+		q->itemsInBuffer++;
 		bubbleSort(q);
 	}
 	else
 	{
 		if (q->highScores[MAX_BUFFER_SIZE - 1] < newScore)
+		{
 			q->highScores[MAX_BUFFER_SIZE - 1] = newScore;
+			q->itemsInBuffer++;
+			bubbleSort(q);
+		}
 	}
 
 	return;
-	//if (q == NULL) return;
-	//else if (q->itemsInBuffer == MAX_BUFFER_SIZE) return;
-	//else {
-	//	// first we move the tail (insert) location up one (in the circle (size related to _capacity))
-	//	q->tail = (q->tail + 1) % MAX_BUFFER_SIZE; // this makes it go around in a circle
-	//	// now we can add the actual item to the location
-	//	q->highScores[q->tail] = newScore;
-	//	// now we have to increase the size.
-	//	q->itemsInBuffer++;
-	//	return;
-	//}
 }
 void dequeue(QUEUE* q)
 {
@@ -64,7 +60,7 @@ void dequeue(QUEUE* q)
 	return;
 }
 
-//	Read/Write from file
+// Read/Write from file
 void saveQueueToFile(QUEUE* q, int newScore)
 {
 	if (q->itemsInBuffer == MAX_BUFFER_SIZE)
@@ -112,35 +108,19 @@ int* returnHighScores()
 
 void bubbleSort(QUEUE* q)
 {
+	int temp;
 	for (int i = 0; i < q->itemsInBuffer; i++)
 	{
-		for (int j = i; j < q->itemsInBuffer; j++)
+		for (int j = 0; j < (q->itemsInBuffer - 1); j++)
 		{
-		
+			if (q->highScores[j] < q->highScores[j + 1])
+			{
+				temp = q->highScores[j];
+				q->highScores[j] = q->highScores[j + 1];
+				q->highScores[j + 1] = temp;
+			}
 		}
 	}
-}
 
-//	Test Code
-//QUEUE* scores = queueInit();
-//saveQueueToFile(scores, 1);
-//saveQueueToFile(scores, 2);
-//saveQueueToFile(scores, 3);
-//saveQueueToFile(scores, 4);
-//saveQueueToFile(scores, 5);
-//
-//int* highScores = returnHighScores();
-//
-//for (int i = 0; i < MAX_BUFFER_SIZE; i++)
-//	printf("%d\n", highScores[i]);
-//
-//saveQueueToFile(scores, 6);
-//saveQueueToFile(scores, 7);
-//saveQueueToFile(scores, 8);
-//saveQueueToFile(scores, 9);
-//saveQueueToFile(scores, 10);
-//
-//highScores = returnHighScores();
-//
-//for (int i = 0; i < MAX_BUFFER_SIZE; i++)
-//	printf("%d\n", highScores[i]);
+	return;
+}
