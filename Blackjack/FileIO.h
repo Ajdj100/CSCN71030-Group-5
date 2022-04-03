@@ -17,10 +17,11 @@ typedef struct CircularQueue
 
 // Circular Queue Operations
 QUEUE* queueInit();
-void enqeueu(QUEUE*, int);
+void enqueue(QUEUE*, int);
 void dequeue(QUEUE*);
 void bubbleSort(QUEUE*);
 
 // Read/Write from file
 void saveQueueToFile(QUEUE*, int);
+void readQueueFromFile(QUEUE*);
 int* returnHighScores();
