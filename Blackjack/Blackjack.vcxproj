@@ -156,8 +156,6 @@
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="FileIO.h" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="Scores.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
