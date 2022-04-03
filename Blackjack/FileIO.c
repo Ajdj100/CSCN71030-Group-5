@@ -1,4 +1,4 @@
-//	Group 5 - Blackjack
+ //	Group 5 - Blackjack
 //	Written by: Sebastian I.
 
 #include "FileIO.h"
@@ -19,7 +19,7 @@ QUEUE* queueInit()
 		highScores->highScores = (int*)malloc(sizeof(int) * MAX_BUFFER_SIZE);
 
 		for (int i = 0; i < MAX_BUFFER_SIZE; i++)
-			enqeueu(highScores, 0);
+			enqueue(highScores, 0);
 
 		highScores->itemsInBuffer = 0;
 
@@ -27,7 +27,7 @@ QUEUE* queueInit()
 	}
 }
 
-void enqeueu(QUEUE* q, int newScore)
+void enqueue(QUEUE* q, int newScore)
 {
 	if (q == NULL) return;
 	else if (q->itemsInBuffer < MAX_BUFFER_SIZE)
@@ -56,20 +56,21 @@ void dequeue(QUEUE* q)
 		q->highScores[q->itemsInBuffer] - 0;
 		q->itemsInBuffer--;
 	}
-
+	
 	return;
 }
 
 // Read/Write from file
 void saveQueueToFile(QUEUE* q, int newScore)
-{
-	if (q->itemsInBuffer == MAX_BUFFER_SIZE)
+{	
+	if (q->itemsInBuffer >= MAX_BUFFER_SIZE)
 	{
 		dequeue(q);
-		enqeueu(q, newScore);
+		enqueue(q, newScore);
 	}
 	else
-		enqeueu(q, newScore);
+		enqueue(q, newScore);
+	
 
 	FILE* fp;
 	fp = fopen(FILE_NAME, "w");
@@ -77,10 +78,30 @@ void saveQueueToFile(QUEUE* q, int newScore)
 	if (fp == NULL)
 		printf("There has been an error opening the High Score file\n");
 	else
-		fwrite(q, sizeof(QUEUE), 1, fp);
+		fwrite(q, sizeof(QUEUE*), 1, fp);
 
 	fclose(fp);
 	return;
+}
+
+void readQueueFromFile(QUEUE* q)
+{
+	FILE* fp;
+	fp = fopen(FILE_NAME, "r");
+
+	if (fp == NULL)
+	{
+		printf("There has been an error opening the High Score file\n");
+		return -1;
+	}
+	else if (fp == EOF)
+	{
+		printf("The high score file is empty.\n");
+		return -1;
+	}
+
+	fread(q, sizeof(QUEUE*), 1, fp);
+	fclose(fp);
 }
 
 int* returnHighScores()
@@ -101,7 +122,8 @@ int* returnHighScores()
 		return -1;
 	}
 
-	fread(scores, sizeof(QUEUE), 1, fp);
+	fread(scores, sizeof(QUEUE*), 1, fp);
+	fclose(fp);
 
 	return scores->highScores;
 }
