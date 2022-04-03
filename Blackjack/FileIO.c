@@ -16,7 +16,6 @@ QUEUE* queueInit()
 	else
 	{
 		highScores->itemsInBuffer = 0;
-		highScores->highScores = (int*)malloc(sizeof(int) * MAX_BUFFER_SIZE);
 
 		for (int i = 0; i < MAX_BUFFER_SIZE; i++)
 			enqueue(highScores, 0);
@@ -70,12 +69,12 @@ void saveQueueToFile(QUEUE* q, int newScore)
 
 	if (fp == NULL)
 		printf("There has been an error opening the High Score file\n");
-	else if (fwrite(q, sizeof(QUEUE*), 1, fp) != 1)
+	else if (fwrite(q, sizeof(QUEUE), 1, fp) != 1)
 	{
 		printf("There has been an error writing to file.\n");
-		fclose(fp);
 	}
-	
+
+	fclose(fp);
 	return;
 }
 
@@ -95,7 +94,7 @@ void readQueueFromFile(QUEUE* q)
 		return -1;
 	}
 
-	fread(q, sizeof(QUEUE*), 1, fp);
+	fread(q, sizeof(QUEUE), 1, fp);
 	fclose(fp);
 }
 
@@ -125,3 +124,17 @@ void bubbleSort(QUEUE* q)
 
 	return;
 }
+
+//QUEUE* q = queueInit();
+//
+//saveQueueToFile(q, 1);
+//saveQueueToFile(q, 3);
+//saveQueueToFile(q, 18);
+//saveQueueToFile(q, 2);
+//saveQueueToFile(q, 5);
+//
+//readQueueFromFile(q);
+//int* scores = returnHighScores(q);
+//
+//for (int i = 0; i < MAX_BUFFER_SIZE; i++)
+//	printf("%d\n", scores[i]);

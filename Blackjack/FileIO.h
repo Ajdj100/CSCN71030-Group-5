@@ -12,7 +12,7 @@
 typedef struct CircularQueue
 {
 	int itemsInBuffer;
-	int* highScores;
+	int highScores[MAX_BUFFER_SIZE];
 } QUEUE;
 
 // Circular Queue Operations

@@ -37,7 +37,7 @@ int main(void)
     
     //PrintWelcome(); //prints intro
 
-    MainMenu(thePlayer);
+    //MainMenu(thePlayer);
 
      return 0;
 }
